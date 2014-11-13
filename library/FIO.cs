@@ -44,7 +44,7 @@ namespace library
 			if (filePath == null)
 				return null;
 			else
-				return new StreamReader( filePath);
+				return new StreamReader(filePath);
 		}
 		//OpenReader2 chunk
 		/// Join the location directory and filename;

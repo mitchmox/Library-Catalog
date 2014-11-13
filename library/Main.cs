@@ -9,9 +9,10 @@ namespace library
 			Console.WriteLine ("Welcome to the D. Moxinuzzi Library");
 			int r = 0;
 
+			//anyone have a better way of doing this?
 			do
 			{
-				string command = UI.PromptLine ("\nHow may we assist you? \n -").ToLower();
+				string command = UI.PromptLine ("\nHow may we assist you? \n - ").ToLower();
 				Console.WriteLine ();
 
 
