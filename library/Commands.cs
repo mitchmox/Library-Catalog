@@ -24,7 +24,7 @@ namespace library
 			int barcode = UI.PromptInt ("Enter the barcode for the material that you'd like to check out: ");
 			//string material;
 
-			do
+			while(!barcodes.Contains (barcode.ToString ()))
 			{
 				if (barcodes.Contains (barcode.ToString ()))
 				{
@@ -45,10 +45,10 @@ namespace library
 				}
 				else
 				{
-					Console.WriteLine ("Invalid barcode! Please enter again.");
+					Console.WriteLine ("Invalid barcode! Please enter againFAKE.");
 					barcode = UI.PromptInt ("Enter the barcode for the material that you'd like to check out: ");
 				}
-			}while(!barcodes.Contains (barcode.ToString ()));
+			}while(!barcodes.Contains (barcode.ToString ()))
 			
 			catalog.Close ();
 

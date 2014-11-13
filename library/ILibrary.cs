@@ -4,7 +4,7 @@ namespace library
 {
 	public interface ILibrary
 	{
-		//dfgfhjgkddd
+	//dfagsdhjfgkht
 	}
 }
 
