@@ -45,11 +45,11 @@ namespace library
 				}
 				else
 				{
-					Console.WriteLine ("Invalid barcode! Please enter againFAKE.");
-					barcode = UI.PromptInt ("Enter the barcode for the material that you'd like to check out: ");
+					Console.WriteLine ("Invalid barcode! Please enter again.");
+					CheckOut();
 				}
 			} while(!barcodes.Contains (barcode.ToString ()));
-			
+
 			catalog.Close ();
 
 			foreach (string r in listOfCheckedOut)
@@ -66,4 +66,3 @@ namespace library
 		}
 	}
 }
-
