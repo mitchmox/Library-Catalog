@@ -18,7 +18,7 @@ namespace library
 		{
 			string nStr = PromptLine(prompt).Trim();
 			while (!IsIntString(nStr)) {
-				Console.WriteLine("Bad int format!  Try again.");
+				Console.WriteLine("Invalid barcode! Please enter again."); //edited error messages for UI to fit better with the library program!
 				nStr = PromptLine(prompt).Trim();
 			}
 			return int.Parse(nStr);
