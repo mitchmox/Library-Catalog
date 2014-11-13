@@ -7,7 +7,7 @@ namespace library
 		public static void Main (string[] args)
 		{
 			Console.WriteLine ("Welcome to the D. Moxinuzzi Library");
-			int redo = 0;
+			int r = 0;
 
 			do
 			{
@@ -18,18 +18,18 @@ namespace library
 				if (command.Contains ("out"))
 				{	
 					Commands.CheckOut ();
-					redo++;
+					r++;
 				}
 				else if (command.Contains ("return") || command.Contains ("in"))
 				{
 					Commands.Return ();
-					redo++;
+					r++;
 				}
 				else
 				{
 					Console.WriteLine ("Request not recognized. You can \"Check Out\" materials OR \"Return\" materials.");
 				}
-			} while(redo == 0);
+			} while(r == 0);
 		}
 	}
 }
