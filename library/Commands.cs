@@ -49,7 +49,7 @@ namespace library
 					barcode = UI.PromptInt ("Enter the barcode for the material that you'd like to check out: ");
 				}
 			} while(!barcodes.Contains (barcode.ToString ()));
-			
+
 			catalog.Close ();
 
 			foreach (string r in listOfCheckedOut)
@@ -66,4 +66,3 @@ namespace library
 		}
 	}
 }
-
