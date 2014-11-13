@@ -6,7 +6,7 @@ namespace library
 {
 	public class Commands
 	{
-		public static void CheckOut()
+		public static void CheckOut(string name)
 		{
 			var catalog = FIO.OpenReader ("catalog.txt");
 			var barcodes = new List<string>();
@@ -34,19 +34,22 @@ namespace library
 						listOfCheckedOut.Add (r);
 					}
 
-					Console.WriteLine ("- ITEM CHECKED OUT IN YOUR NAME - \n");
+					Console.WriteLine ("- ITEM CHECKED OUT TO " + name.ToUpper() + " - \n");
 
-					string choice = UI.PromptLine ("To check out more materials, enter \'C\', otherwise enter \'Q\' to Quit: ");
+					string choice = UI.PromptLine ("To check out more materials, enter \'C\', otherwise press any key to Quit: ");
 
 					if (choice.ToLower () == "c")
 					{
-						CheckOut ();
+						CheckOut (name);
 					}
 				}
 				else
 				{
-					Console.WriteLine ("Invalid barcode! Please enter again.");
-					CheckOut();
+					while (!barcodes.Contains(barcode.ToString()))
+					{
+						Console.WriteLine ("Invalid barcode! Please enter again.");
+					}
+					CheckOut(name);
 				}
 			} while(!barcodes.Contains (barcode.ToString ()));
 
