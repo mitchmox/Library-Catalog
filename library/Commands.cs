@@ -24,17 +24,17 @@ namespace library
 			int barcode = UI.PromptInt ("Enter the barcode for the material that you'd like to check out: ");
 			//string material;
 
-			while(!barcodes.Contains (barcode.ToString ()))
+			do
 			{
 				if (barcodes.Contains (barcode.ToString ()))
 				{
 					foreach (string r in materials [barcodes.IndexOf (barcode.ToString())])
 					{
-						Console.WriteLine("     " + r);
+						Console.WriteLine ("     " + r);
 						listOfCheckedOut.Add (r);
 					}
 
-					Console.WriteLine("- ITEM CHECKED OUT IN YOUR NAME - \n");
+					Console.WriteLine ("- ITEM CHECKED OUT IN YOUR NAME - \n");
 
 					string choice = UI.PromptLine ("To check out more materials, enter \'C\', otherwise enter \'Q\' to Quit: ");
 
@@ -48,7 +48,7 @@ namespace library
 					Console.WriteLine ("Invalid barcode! Please enter againFAKE.");
 					barcode = UI.PromptInt ("Enter the barcode for the material that you'd like to check out: ");
 				}
-			}while(!barcodes.Contains (barcode.ToString ()))
+			} while(!barcodes.Contains (barcode.ToString ()));
 			
 			catalog.Close ();
 
