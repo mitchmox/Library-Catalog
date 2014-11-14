@@ -20,53 +20,46 @@ namespace library
 				materials.Add (line);
 			}
 
-			string choice = "";
+			string barcode = "";
 
 			do
 			{
-				int barcode = UI.PromptInt ("Enter the barcode for the material that you'd like to check out: ");
+				barcode = UI.PromptLine (@"Enter the barcode for the material that you'd like to check out. 
+When you are finsihed checking out materials, enter 'Q' for the barcode.
+- ");
 
-				if (barcodes.Contains (barcode.ToString ()))
+				if (barcodes.Contains (barcode))
 				{
-					foreach (string r in materials [barcodes.IndexOf (barcode.ToString())])
+					foreach (string r in materials [barcodes.IndexOf (barcode)])
 					{
 						Console.WriteLine ("     " + r);
 						listOfCheckedOut.Add (r);
 					}
+					listOfCheckedOut.Add("");
 
 					Console.WriteLine ("- ITEM CHECKED OUT TO " + name.ToUpper () + " - \n");
 
-					choice = UI.PromptLine ("To check out more materials press Enter, otherwise enter 'Q' to Quit: ");
+					//choice = UI.PromptLine ("To check out more materials press Enter, otherwise enter 'Q' to Quit: ");
 				}
 				else
 				{
 					Console.WriteLine ("Invalid barcode!");
-					choice = UI.PromptLine ("To continue press enter, otherwise enter 'Q' to Quit: ");
+					//choice = UI.PromptLine ("To continue press enter, otherwise enter 'Q' to Quit: ");
 				}
-			}while(choice.ToUpper() != "Q");
+			}while(barcode.ToUpper() != "Q");
 
 			catalog.Close ();
 
+			Console.WriteLine ();
+			Console.WriteLine (" ALL ITEMS CHECKED OUT TO " + name.ToUpper () + " ARE: \n");
+
 			foreach (string r in listOfCheckedOut)
 			{
-				Console.WriteLine (r);
+				Console.WriteLine ("     " + r);
 			}
 
 			Console.WriteLine ();
 		}
-
-//		public static void BarcodeFound()
-//		{
-//			foreach (string r in materials [barcodes.IndexOf (barcode.ToString())])
-//			{
-//				Console.WriteLine ("     " + r);
-//				listOfCheckedOut.Add (r);
-//			}
-//
-//			Console.WriteLine ("- ITEM CHECKED OUT TO " + name.ToUpper () + " - \n");
-//
-//			//choice = UI.PromptLine ("To check out more materials, enter \'C\', otherwise enter 'Q' to Quit: ");
-//		}
 
 		public static void Return()
 		{
