@@ -8,24 +8,24 @@ namespace library
 	{
 		public static void CheckOut(string name)
 		{
-			var catalog = FIO.OpenReader ("catalog.txt");
-			var barcodes = new List<string>();
-			var materials = new List<string[]>();
-			var listOfCheckedOut = new List<string> ();
+			StreamReader catalog = FIO.OpenReader ("catalog.txt");
+			List<string> barcodes = new List<string>();
+			List<string[]> materials = new List<string[]>();
+			List<string> listOfCheckedOut = new List<string> ();
 
 			while (!catalog.EndOfStream)
 			{
 				string[] line = catalog.ReadLine ().Split (',');
-				barcodes.Add(line[0]);
+				barcodes.Add (line [0]);
 				materials.Add (line);
 			}
 
-
-			int barcode = UI.PromptInt ("Enter the barcode for the material that you'd like to check out: ");
-			//string material;
+			string choice = "";
 
 			do
 			{
+				int barcode = UI.PromptInt ("Enter the barcode for the material that you'd like to check out: ");
+
 				if (barcodes.Contains (barcode.ToString ()))
 				{
 					foreach (string r in materials [barcodes.IndexOf (barcode.ToString())])
@@ -34,24 +34,16 @@ namespace library
 						listOfCheckedOut.Add (r);
 					}
 
-					Console.WriteLine ("- ITEM CHECKED OUT TO " + name.ToUpper() + " - \n");
+					Console.WriteLine ("- ITEM CHECKED OUT TO " + name.ToUpper () + " - \n");
 
-					string choice = UI.PromptLine ("To check out more materials, enter \'C\', otherwise press any key to Quit: ");
-
-					if (choice.ToLower () == "c")
-					{
-						CheckOut (name);
-					}
+					choice = UI.PromptLine ("To check out more materials press Enter, otherwise enter 'Q' to Quit: ");
 				}
 				else
 				{
-					while (!barcodes.Contains(barcode.ToString()))
-					{
-						Console.WriteLine ("Invalid barcode! Please enter again.");
-					}
-					CheckOut(name);
+					Console.WriteLine ("Invalid barcode!");
+					choice = UI.PromptLine ("To continue press enter, otherwise enter 'Q' to Quit: ");
 				}
-			} while(!barcodes.Contains (barcode.ToString ()));
+			}while(choice.ToUpper() != "Q");
 
 			catalog.Close ();
 
@@ -62,6 +54,19 @@ namespace library
 
 			Console.WriteLine ();
 		}
+
+//		public static void BarcodeFound()
+//		{
+//			foreach (string r in materials [barcodes.IndexOf (barcode.ToString())])
+//			{
+//				Console.WriteLine ("     " + r);
+//				listOfCheckedOut.Add (r);
+//			}
+//
+//			Console.WriteLine ("- ITEM CHECKED OUT TO " + name.ToUpper () + " - \n");
+//
+//			//choice = UI.PromptLine ("To check out more materials, enter \'C\', otherwise enter 'Q' to Quit: ");
+//		}
 
 		public static void Return()
 		{
