@@ -13,3 +13,15 @@
 230017,Confessions,Saint Augustine - Trans. Henry Chadwick,1971
 230018,Abbot Suger on the Abbey Church of St. -Denis and Its Art Treasures - Ed. Erwin Panofsky,1979
 230019,Inferon,Dante - Trans. Allen Mandelbaum,1980
+230020,Sgt. Pepper's Lonely Hearts Club Band,The Beatles,1967
+230021,The Fame,Lady Gaga,2008
+230022,The Fame Monster,Lady Gaga,2009
+230023,Born This Way,Lady Gaga,2011
+230024,Art Pop,Lady Gaga,2013
+230025,Thriller,Michael Jackson,1982
+230026,The Dark Side Of The Moon,Pink Floyd,1973
+230027,The Bodyguard,Whitney Huston,1992
+230028,Their Greatest Hits,The Eagles, 1976
+230029,Back In Black,AC/DC,1980
+230030,Saturday Night Fever,Bee Gees,1977
+230031,Rumours,Fleetwood Mac,1977
