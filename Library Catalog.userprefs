@@ -1,8 +1,11 @@
-﻿<Properties GitUserInfo="UsingGIT">
+﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="library/Commands.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="library\Commands.cs">
     <Files>
-      <File FileName="library/Commands.cs" Line="5" Column="5" />
+      <File FileName="library\Commands.cs" Line="1" Column="1" />
+      <File FileName="library\INcatalog.txt" Line="1" Column="1" />
+      <File FileName="library\OUTcatalog.txt" Line="1" Column="1" />
+      <File FileName="library\MASTERcatalog.txt" Line="56" Column="56" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

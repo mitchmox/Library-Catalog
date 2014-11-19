@@ -29,7 +29,7 @@ namespace library
 				//Ex: 230001,Harry Potter stores as line[0]=2300001, line[1]=Harry Potter
 			{
 				string[] line = master.ReadLine ().Split (',');
-				barcodes.Add (line [0]);
+				barcodes.Add (line[0]);
 				materials.Add (line);
 			}
 
@@ -47,7 +47,9 @@ namespace library
 			{
 				barcode = UI.PromptLine (@"Enter the barcode for the material that you'd like to check out.   
 When you are finsihed checking out materials, enter 'Q' for the barcode.
-- ");																				//user sets barcode
+- ");									
+
+				//user sets barcode
 				if (barcode.Contains("23"))
 				{
 					type = "book";
