@@ -27,7 +27,7 @@ namespace library
 				}
 				else if (command.Contains ("return") || command.Contains ("in"))
 				{
-					Commands.Return (name);
+					Commands.CheckIn(name);
 					r++;
 				}
 				else
@@ -35,7 +35,7 @@ namespace library
 					Console.WriteLine ("Request not recognized. You can \"Check Out\" materials OR \"Return\" materials.");
 				}
 			} while(r == 0);
-			//Console.ReadLine ();		
+			Console.ReadLine ();		
 		}
 	}
 }
