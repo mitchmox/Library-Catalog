@@ -9,32 +9,42 @@ namespace library
 
 			Console.WriteLine ("Welcome to the D. Moxinuzzi Library");
 			int r = 0;
+			int password = 1234;
 
 			string name = UI.PromptLine ("\nPlease enter your name: \n - ").ToLower();
 			int id = UI.PromptInt("\nPlease enter your ID Number\n - ");
 
-			//anyone have a better way of doing this?
+			int userPassword = UI.PromptInt ("Please enter the password: ");
 			do
 			{
-				string command = UI.PromptLine ("\nHow may we assist you? \n - ").ToLower();
-				Console.WriteLine ();
+				//anyone have a better way of doing this?
+				do
+				{
+					string command = UI.PromptLine ("\nHow may we assist you? \n - ").ToLower ();
+					Console.WriteLine ();
 
 
-				if (command.Contains ("out"))
-				{	
-					Commands.CheckOut (name);
-					r++;
-				}
-				else if (command.Contains ("return") || command.Contains ("in"))
-				{
-					Commands.CheckIn(name);
-					r++;
-				}
-				else
-				{
-					Console.WriteLine ("Request not recognized. You can \"Check Out\" materials OR \"Return\" materials.");
-				}
-			} while(r == 0);
+					if (command.Contains ("out"))
+					{	
+						Commands.CheckOut (name);
+						r++;
+					}
+					else if (command.Contains ("return") || command.Contains ("in"))
+					{
+						Commands.CheckIn (name);
+						r++;
+					}
+					else
+					{
+						Console.WriteLine ("Request not recognized. You can \"Check Out\" materials OR \"Return\" materials.");
+					}
+				} while(r == 0);
+			}while (userPassword == password);
+			if (userPassword!=password)
+			{
+				int password = UI.PromptInt("Incorrect password!  Try agian: ");
+			}
+
 			Console.ReadLine ();		
 		}
 	}
