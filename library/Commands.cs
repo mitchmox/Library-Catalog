@@ -10,7 +10,8 @@ namespace library
 		public static void CheckOut(string name)
 		{
 
-			StreamReader catalog = FIO.OpenReader ("catalog.txt");
+
+			StreamReader catalog = FIO.OpenReader ("INcatalog.txt");
 			List<string> barcodes = new List<string>();
 			List<string[]> materials = new List<string[]>();
 			List<string> listOfCheckedOut = new List<string> ();
@@ -30,7 +31,7 @@ namespace library
 				//listOfCheckedIn.Add (r);
 			//}
 
-			Console.WriteLine (listOfCheckedIn);
+			//Console.WriteLine (listOfCheckedIn);
 
 			string barcode = "";
 
@@ -45,8 +46,9 @@ When you are finsihed checking out materials, enter 'Q' for the barcode.
 					{
 						Console.WriteLine ("     " + r);
 						listOfCheckedOut.Add (r);
-						listOfCheckedIn.Remove(r);
+						listOfCheckedIn.Remove (r);
 					}
+
 					listOfCheckedOut.Add("");
 
 					Console.WriteLine ("- ITEM CHECKED OUT TO " + name.ToUpper () + " - \n");
@@ -54,24 +56,32 @@ When you are finsihed checking out materials, enter 'Q' for the barcode.
 				}
 				else
 				{
-					Console.WriteLine ("Invalid barcode!");//this prints even if you enter q
+					if (barcode.ToLower() != "q") //makes it so if 'Q' is typed, invalid barcode isn't printed
+						Console.WriteLine ("Invalid barcode!");
+						Console.WriteLine ();
 				}
 			}while(barcode.ToUpper() != "Q");
 
 			catalog.Close ();
 
-			Console.WriteLine ();
+		//	Console.WriteLine ();
 			Console.WriteLine (" ALL ITEMS CHECKED OUT TO " + name.ToUpper () + " ARE: \n");
+
+			//StreamWriter CheckedOut = File.AppendText(FIO.GetPath("CheckedOut.txt"));
 
 			foreach (string r in listOfCheckedOut)
 			{
 				Console.WriteLine ("     " + r);
 			}
+				
+			//need to find a way to NOT have CheckedOut.txt not all be on one line
+			//some kind of split method for an array
+
 		}
 
 		public static void Return(string name)
 		{
-				StreamReader catalog = FIO.OpenReader ("catalog.txt");
+				StreamReader catalog = FIO.OpenReader ("CheckedOut.txt");
 				List<string> barcodes = new List<string>();
 				List<string[]> materials = new List<string[]>();
 				List<string> listOfCheckedOut = new List<string> ();
@@ -95,7 +105,7 @@ When you are finsihed checking out materials, enter 'Q' for the barcode.
 
 				do
 				{
-					barcode = UI.PromptLine (@"Enter the barcode for the material that you'd like to check in. 
+					barcode = UI.PromptLine (@"Enter the barcode for the material that you'd like to return. 
 When you are finsihed checking out materials, enter 'Q' for the barcode.
 - ");
 					if (barcodes.Contains (barcode))
@@ -113,7 +123,9 @@ When you are finsihed checking out materials, enter 'Q' for the barcode.
 					}
 					else
 					{
-						Console.WriteLine ("Invalid barcode!");//this prints even if you enter q
+						if (barcode.ToLower() != "q") //makes it so if 'Q' is typed, invalid barcode isn't printed
+							Console.WriteLine ("Material not found!");
+							Console.WriteLine ();
 					}
 				}while(barcode.ToUpper() != "Q");
 

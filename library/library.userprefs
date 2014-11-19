@@ -1,8 +1,8 @@
-﻿<Properties GitUserInfo="UsingGIT">
+﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="library/Commands.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../grade_file_homework_stub/grade_files.cs">
     <Files>
-      <File FileName="library/Commands.cs" Line="5" Column="5" />
+      <File FileName="../../grade_file_homework_stub/grade_files.cs" Line="15" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
