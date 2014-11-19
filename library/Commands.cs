@@ -8,29 +8,20 @@ namespace library
 	{
 		public static void CheckOut(string name)
 		{
-			StreamWriter inCatalog = new StreamWriter("INcatalog.txt");		//master and catalog should be the same
-			StreamReader master = FIO.OpenReader ("MASTERcatalog.txt");
-			StreamWriter outCatalog = new StreamWriter("OUTcatalog.txt");
+			StreamReader catalog = FIO.OpenReader ("catalog.txt");
+
 			List<string> barcodes = new List<string>();
-			List<string[]> materials = new List<string[]>();
+			List<string> materials = new List<string>();
+
 			List<string> listOfCheckedOut = new List<string> ();
 			List<string> listOfCheckedIn = new List<string> ();
-			string type = "";//type can be movie, book, album, etc...
 
-
-			while (!master.EndOfStream)
-			{
-				string line = master.ReadLine ();
-				inCatalog.WriteLine (line);
-			}
-
-
-			while (!master.EndOfStream)  //creates an array of all elements of each line in "catalog"  
+			while (!catalog.EndOfStream)  //creates an array of all elements of each line in "catalog"  
 				//Ex: 230001,Harry Potter stores as line[0]=2300001, line[1]=Harry Potter
 			{
-				string[] line = master.ReadLine ().Split (',');
-				barcodes.Add (line[0]);
-				materials.Add (line);
+				string line = catalog.ReadLine ();
+				barcodes.Add(line.Substring(0,6);
+				materials.Add(line);
 			}
 
 			for (int i = 0; i < materials.Count; i++)
