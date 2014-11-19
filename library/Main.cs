@@ -15,9 +15,9 @@ namespace library
 			int id = UI.PromptInt("\nPlease enter your ID Number\n - ");
 
 			int userPassword = UI.PromptInt ("Please enter the password: ");
-			do
+
+			if(userPassword==password)
 			{
-				//anyone have a better way of doing this?
 				do
 				{
 					string command = UI.PromptLine ("\nHow may we assist you? \n - ").ToLower ();
@@ -39,10 +39,10 @@ namespace library
 						Console.WriteLine ("Request not recognized. You can \"Check Out\" materials OR \"Return\" materials.");
 					}
 				} while(r == 0);
-			}while (userPassword == password);
-			if (userPassword!=password)
+			}//end password if
+			else
 			{
-				int password = UI.PromptInt("Incorrect password!  Try agian: ");
+				userPassword = UI.PromptInt("Incorrect password!  Try again: ");
 			}
 
 			Console.ReadLine ();		

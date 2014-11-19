@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 
-namespace library
+namespace library//master//eva
 {
 	public class Commands
 	{
@@ -16,11 +16,10 @@ namespace library
 			List<string> listOfCheckedOut = new List<string> ();
 			List<string> listOfCheckedIn = new List<string> ();
 
-			while (!catalog.EndOfStream)  //creates an array of all elements of each line in "catalog"  
-				//Ex: 230001,Harry Potter stores as line[0]=2300001, line[1]=Harry Potter
+			while (!catalog.EndOfStream)
 			{
 				string line = catalog.ReadLine ();
-				barcodes.Add(line.Substring(0,6);
+				barcodes.Add(line.Substring(0,6));
 				materials.Add(line);
 			}
 
@@ -39,22 +38,6 @@ namespace library
 				barcode = UI.PromptLine (@"Enter the barcode for the material that you'd like to check out.   
 When you are finsihed checking out materials, enter 'Q' for the barcode.
 - ");									
-
-				//user sets barcode
-				if (barcode.Contains("23"))
-				{
-					type = "book";
-				}
-				if (barcode.Contains("45"))
-				{
-					type = "album";
-				}
-				if (barcode.Contains("67"))
-				{
-					type = "movie";
-				}
-				Console.WriteLine("The item you are trying to check out is a {0}", type);
-				Console.WriteLine();
 
 				if (barcodes.Contains (barcode))
 				{
