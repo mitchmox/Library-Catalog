@@ -43,21 +43,12 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 					materials.Remove(materials[barcodes.IndexOf(barcode)]);
 					barcodes.Remove(barcode);
 
-					foreach (string p in materials)
-					{
-						Console.WriteLine (p);
-					}
-					foreach (string r in barcodes)
-					{
-						Console.WriteLine (r);
-					}
-
 					foreach (string x in material)
 					{
 						Console.WriteLine ("     " + x);
 					}
 
-					Console.WriteLine ("- ITEM CHECKED OUT TO " + name.ToUpper () + " - \n");
+					Console.WriteLine ("\n- ITEM CHECKED OUT TO "  + name.ToUpper () +"  -  ");
 				}
 				else
 				{
@@ -65,7 +56,10 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 					if (barcode.ToLower() != "q") //makes it so if 'Q' is typed, invalid barcode isn't printed
 					{
 						Console.WriteLine ();
-						Console.WriteLine ("!!! Invalid barcode. Material is either checked out or nonexistent. !!!");
+						Console.WriteLine (@"
+-----------------------------------------------------------------------
+!!! Invalid barcode. Material is either checked out or nonexistent. !!!
+-----------------------------------------------------------------------");
 						Console.WriteLine ();
 					}
 				}
