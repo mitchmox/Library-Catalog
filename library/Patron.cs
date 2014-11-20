@@ -26,7 +26,9 @@ namespace library//mitchell
 
 			do 
 			{
-				barcode = UI.PromptLine (@"Enter the barcode for the material that you'd like to check out.   
+				barcode = UI.PromptLine (@"
+
+Enter the barcode for the material that you'd like to check out.   
 When you are finished checking out materials, enter 'Q' for the barcode to quit.
 - ");									
 				if (barcodes.Contains (barcode))//checks if barcode is in the array of barcodes

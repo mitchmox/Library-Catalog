@@ -9,12 +9,27 @@ namespace library
 
 			Console.WriteLine ("Welcome to the D. Moxinuzzi Library");
 
-			string name = UI.PromptLine ("\nPlease enter your name: \n - ").ToLower();
+			string name = UI.PromptLine (@"
+---------------------------
+  Please enter your name: 
+---------------------------
+ - ").ToLower();
 			int count = 0;
 
 			do
 			{
-				string command = UI.PromptLine ("\nHow may we assist you? \n - ");
+				string command = UI.PromptLine (@"
+--------------------------
+  How may we assist you? 
+--------------------------
+   You may:
+    ~ check out
+    ~ return
+    ~ reset password
+    ~ ask Emanuel for assistance
+
+ - ");
+
 				Console.WriteLine ();
 
 				switch(command.ToLower())
@@ -28,10 +43,14 @@ namespace library
 						Staff.Restore();
 						break;
 					default:
-						Console.WriteLine ("Request not recognized. You can \"Check Out\" materials.");
+						Console.WriteLine (@"
+-------------------------------------------------
+ !!! Request not recognized. Please see menu !!! 
+-------------------------------------------------");
 						break;
 				}
 			}while(count == 0);	
 		}
 	}
 }
+ 
