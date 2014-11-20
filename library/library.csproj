@@ -43,7 +43,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <None Include="OUTcatalog.txt" />
     <None Include="catalog.txt" />
   </ItemGroup>
 </Project>
