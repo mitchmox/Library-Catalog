@@ -18,13 +18,21 @@ namespace library//mitchell
 		public static void Restore()
 		{
 			StreamReader master = FIO.OpenReader ("master.txt");
-			StreamWriter catalog = FIO.OpenWriter (FIO.GetLocation("catalog.txt"),"catalog.txt");
+			StreamWriter catalog = FIO.OpenWriter (FIO.GetLocation ("catalog.txt"), "catalog.txt");
+			StreamWriter checkedOut = FIO.OpenWriter (FIO.GetLocation("checkedOut.txt"), "checkedOut.txt");
 
-			while(!master.EndOfStream)
+			while (!master.EndOfStream)
 			{
-				catalog.WriteLine (master.ReadLine());
+				catalog.WriteLine (master.ReadLine ());
 			}
 
+			while (!master.EndOfStream)
+			{
+				checkedOut.WriteLine ("");
+			}
+
+
+			checkedOut.Close ();
 			master.Close ();
 			catalog.Close ();
 		}

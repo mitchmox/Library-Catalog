@@ -38,6 +38,10 @@ namespace library
 						count++;
 						Patron.CheckOut(name);
 						break;
+					case "out":
+						count++;
+						Patron.CheckOut(name);
+						break;
 					case "restore":
 						count++;
 						Staff.Restore();
