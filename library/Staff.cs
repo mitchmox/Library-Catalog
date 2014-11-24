@@ -14,6 +14,8 @@ namespace library//mitchell
 		}
 		public static void NewUser()
 		{
+			string name = UI.PromptLine ("What is your first name?");
+
 		}
 		public static void Restore()
 		{

@@ -9,6 +9,9 @@ namespace library
 
 			Console.WriteLine ("Welcome to the D. Moxinuzzi Library");
 
+			string userPassword = "1234";
+			string password = "";
+
 			string name = UI.PromptLine (@"
 ---------------------------
   Please enter your name: 
@@ -27,6 +30,10 @@ namespace library
     ~ return
     ~ reset password
     ~ ask Emanuel for assistance
+   
+   For staff:
+	~ restore
+	~ add a new user
 
  - ");
 
@@ -36,15 +43,19 @@ namespace library
 				{
 					case "check out":
 						count++;
-						Patron.CheckOut(name);
+						Patron.CheckOut(name, userPassword,password);
 						break;
 					case "out":
 						count++;
-						Patron.CheckOut(name);
+						Patron.CheckOut(name, userPassword,password);
 						break;
 					case "restore":
 						count++;
 						Staff.Restore();
+						break;
+					case "new user":
+						count++;
+						Staff.NewUser();
 						break;
 					default:
 						Console.WriteLine (@"
