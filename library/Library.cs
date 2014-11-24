@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Collections.Generic;
 
 namespace library
 {
@@ -11,6 +13,9 @@ namespace library
 
 			string userPassword = "1234";
 			string password = "";
+			Dictionary<string, string> users = new Dictionary<string, string> ();
+
+			users.Add ("", "");
 
 			string name = UI.PromptLine (@"
 ---------------------------
@@ -26,14 +31,14 @@ namespace library
   How may we assist you? 
 --------------------------
    You may:
+    ~ become a new user
     ~ check out
     ~ return
     ~ reset password
     ~ ask Emanuel for assistance
    
    For staff:
-	~ restore
-	~ add a new user
+    ~ restore
 
  - ");
 
@@ -55,7 +60,7 @@ namespace library
 						break;
 					case "new user":
 						count++;
-						Staff.NewUser();
+						Staff.NewUser(userPassword, name, users, password);
 						break;
 					default:
 						Console.WriteLine (@"
@@ -64,7 +69,8 @@ namespace library
 -------------------------------------------------");
 						break;
 				}
-			}while(count == 0);	
+			}while(count == 0);
+			Console.ReadLine ();
 		}
 	}
 }

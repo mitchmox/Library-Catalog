@@ -8,8 +8,9 @@ namespace library//mitchell
 	{
 		public static void CheckOut(string name, string userPassword, string password)
 		{
-			password = UI.PromptLine ("Please enter your password: ");
-
+			password = UI.PromptLine (@"
+Please enter your password: 
+- ");
 			if (userPassword == password)
 			{
 
