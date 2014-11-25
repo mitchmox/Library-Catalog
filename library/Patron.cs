@@ -157,5 +157,99 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 				Console.WriteLine ("Wrong password!");
 			}
 		}
+		public static void Reset(string userPassword, string name, Dictionary <string, string> users, string password, string staffPassword, Dictionary <string, string> staff)
+		{
+			password = UI.PromptLine (@"
+Please enter your password: 
+- ");
+
+			int count = 0;
+			if (userPassword == password)
+			{
+				do
+				{
+					string newUserPassword = UI.PromptLine ("Please enter the new password: ");
+					if (newUserPassword != userPassword)
+					{
+						string newUserPassword2 = UI.PromptLine ("Please enter the password again: ");
+						if (newUserPassword==newUserPassword2)
+						{
+							userPassword=newUserPassword2;
+							Console.WriteLine("Password has been reset to: "+userPassword);
+							do
+							{
+								string command = UI.PromptLine (@"
+--------------------------
+  How may we assist you? 
+--------------------------
+   You may:
+    ~ become a new user
+    ~ check out
+    ~ return
+    ~ ask Emanuel for assistance
+   
+   For staff:
+    ~ restore
+    ~ check in
+
+ - ");
+
+
+								Console.WriteLine ();
+
+								switch(command.ToLower())
+								{
+									case "check out":
+										count++;
+										Patron.CheckOut(name, userPassword,password);
+										break;
+										//reset psswrd
+										//assistance
+									case "out":
+										count++;
+										Patron.CheckOut(name, userPassword,password);
+										break;
+									case"return":
+										count++;
+										Patron.Return(name, userPassword, password, staffPassword);
+										break;
+									case "restore":
+										count++;
+										Staff.Restore(staff);
+										break;
+									case "new user":
+										count++;
+										Staff.NewUser (userPassword, name, users, password, staffPassword, staff);
+										break;
+									case "check in":
+										count++;
+										Staff.CheckIn(name, staffPassword, password);
+										break;
+									default:
+										Console.WriteLine (@"
+-------------------------------------------------
+ !! Request not recognized. Please see menu !!! 
+-------------------------------------------------");
+										break;
+								}
+
+							}while(count == 0);
+							count=1;
+						}
+						else
+						{
+							Console.WriteLine("The passwords you have entered do not match!");
+							count=0;
+						}
+					}
+					else
+					{
+						Console.WriteLine ("Please enter a different password than the one you have now!");
+						count = 0;
+					}
+				}while (count==0);
+			}
+		}
+
 	}
 }

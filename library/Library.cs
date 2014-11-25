@@ -72,6 +72,10 @@ namespace library
 							count++;
 							Staff.CheckIn(name, staffPassword, password);
 							break;
+						case "reset password":
+							count++;
+							Patron.Reset(userPassword, name, users, password, staffPassword, staff);
+							break;
 						default:
 							Console.WriteLine (@"
 -------------------------------------------------
