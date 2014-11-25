@@ -13,15 +13,13 @@ namespace library
 
 			string userPassword = "1234";
 			string password = "";
+			string staffPassword = "s1234";
 			Dictionary<string, string> users = new Dictionary<string, string> ();
+			Dictionary<string, string> staff = new Dictionary<string, string> ();
 
 			users.Add ("", "");
-
-			string name = UI.PromptLine (@"
----------------------------
-  Please enter your name: 
----------------------------
- - ").ToLower();
+			staff.Add ("defaultStaff", staffPassword);
+			string name = "USER";
 			int count = 0;
 
 			do
@@ -39,6 +37,7 @@ namespace library
    
    For staff:
     ~ restore
+    ~ check in
 
  - ");
 
@@ -50,6 +49,9 @@ namespace library
 						count++;
 						Patron.CheckOut(name, userPassword,password);
 						break;
+					//return
+					//reset psswrd
+					//assistance
 					case "out":
 						count++;
 						Patron.CheckOut(name, userPassword,password);
@@ -60,7 +62,7 @@ namespace library
 						break;
 					case "new user":
 						count++;
-						Staff.NewUser(userPassword, name, users, password);
+						Staff.NewUser (userPassword, name, users, password, staffPassword, staff);
 						break;
 					default:
 						Console.WriteLine (@"
