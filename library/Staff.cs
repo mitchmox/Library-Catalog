@@ -113,10 +113,10 @@ When you are finished checking in materials, enter 'Q' for the barcode to quit.
 		public static void NewUser(string userPassword, string name, Dictionary <string, string> users, string password, string staffPassword, Dictionary <string, string> staff)
 		{
 			password = UI.PromptLine (@"
-Please enter your password: 
+Please enter your staff password: 
 - ");
 
-			if (staff.ContainsValue (staffPassword))
+			if (staff.ContainsValue (password))
 			{
 
 				string staffOrUser = UI.PromptLine ("Is the user you want to add a staff or user?  \'s\' for staff, \'u\' for user: ");

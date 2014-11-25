@@ -1,18 +1,16 @@
-230001,Harry Potter and the Chamber of Secrets,J.K Rowling,1998
 230002,Harry Potter and the Prisoner of Azkaban,J.K Rowling,1999
 230003,Harry Potter and the Goblet of Fire,J.K Rowling,2000
 230004,Harry Potter and the Order of the Phoenix,J.K Rowling,2003
 230005,Harry Potter and the Half-Blood Prince,J.K Rowling,2005
 230006,Harry Potter and the Deathly Hallows,J.K Rowling,2007
-230011,Odyssey,Homer - Trans. Robert Fagles,1990
-230012,Four Tragedies,Sophocles - Trans. Meineck and Woodruff,2007
-230013,History of the Peloponnesian War,Thucydides,1954
-230014,Four Texts on Socrates,Aristophones and Plato - Eds. West and West,1998
-230015,Symposium,Plato - Trans. Alexander Nehama and Paul Woodruff,1989
-230016,Aeneid,Virgil - Trans. Mandelbaum, 1971
-230017,Confessions,Saint Augustine - Trans. Henry Chadwick,1971
-230018,Abbot Suger on the Abbey Church of St. -Denis and Its Art Treasures - Ed. Erwin Panofsky,1979
-230019,Inferon,Dante - Trans. Allen Mandelbaum,1980
+230007,Four Tragedies,Sophocles - Trans. Meineck and Woodruff,2007
+230008,History of the Peloponnesian War,Thucydides,1954
+230009,Four Texts on Socrates,Aristophones and Plato - Eds. West and West,1998
+230010,Symposium,Plato - Trans. Alexander Nehama and Paul Woodruff,1989
+230011,Aeneid,Virgil - Trans. Mandelbaum, 1971
+230012,Confessions,Saint Augustine - Trans. Henry Chadwick,1971
+230013,Abbot Suger on the Abbey Church of St. -Denis and Its Art Treasures - Ed. Erwin Panofsky,1979
+230014,Inferon,Dante - Trans. Allen Mandelbaum,1980
 450000,Sgt. Pepper's Lonely Hearts Club Band,The Beatles,1967
 450001,The Fame,Lady Gaga,2008
 450002,The Fame Monster,Lady Gaga,2009
@@ -25,15 +23,13 @@
 450009,Back In Black,AC/DC,1980
 450010,Saturday Night Fever,Bee Gees,1977
 450011,Rumours,Fleetwood Mac,1977
-660000,Back to the Future,Robert Zemeckis,1985
-660001,Harold and Maude,Hal Ashby,1971
-660002,Avatar,James Cameron,2009
-660003,Titanic,James Cameron,1997
-660004,The Avengers,Joss Whedon,2012
-660005,Harry Potter and the Deathly Hallows - Part 2,David Yates,2011
-660006,Frozen,Chris Buck/Jennifer Lee,2013
-660007,Iron Man 3,Shane Black,2013
-660008,Transformers: Dark of the Moon,Michael Bay,2011
-660009,The Lord of the Rings: The Return of the King,Peter Jackson,2003
-660010,Skyfall,Sam Mendes,2012
-660011,Transformers: Age of Extinction,Michael Bay,2014
+670000,Back to the Future,Robert Zemeckis,1985
+670001,Harold and Maude,Hal Ashby,1971
+670002,Avatar,James Cameron,2009
+670003,Titanic,James Cameron,1997
+670004,The Avengers,Joss Whedon,2012
+670006,Frozen,Chris Buck/Jennifer Lee,2013
+670007,Iron Man 3,Shane Black,2013
+670009,The Lord of the Rings: The Return of the King,Peter Jackson,2003
+670010,Skyfall,Sam Mendes,2012
+670011,Transformers: Age of Extinction,Michael Bay,2014

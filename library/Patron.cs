@@ -8,7 +8,7 @@ namespace library//mitchell
 	{
 		public static void CheckOut(string name, string userPassword, string password)
 		{
-			password = UI.PromptLine (@"
+			password= UI.PromptLine (@"
 Please enter your password: 
 - ");
 			if (userPassword == password)
@@ -32,7 +32,7 @@ Please enter your password:
 
 				do
 				{
-					barcode = UI.PromptLine (@"
+					barcode = UI.PromptLine(@"
 --------------------------------------------------------------------------------
 	    Enter the barcode for the material that you'd like to check out.
 When you are finished checking out materials, enter 'Q' for the barcode to quit.
@@ -62,9 +62,9 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 						{
 							Console.WriteLine ();
 							Console.WriteLine (@"
------------------------------------------------------------------------
-!!! Invalid barcode. Material is either checked out or nonexistent. !!!
------------------------------------------------------------------------");
+----------------------------------------------------------------------
+!!! Invalid barcode. Material is either checked out or nonexistent !!!
+----------------------------------------------------------------------");
 							Console.WriteLine ();
 						}
 					}
@@ -96,6 +96,82 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 				{
 					updateCatalog.WriteLine (x);
 				}
+
+				updateCatalog.Close ();
+				outMaterials.Close ();
+			}
+			else
+			{
+				Console.WriteLine ("Wrong password!");
+			}
+		}
+
+		public static void Return(string name, string userPassword, string password, string staffPassword)
+		{
+			password = UI.PromptLine (@"
+Please enter your password: 
+- ");
+			if (userPassword == password)
+			{
+
+				StreamReader catalog = FIO.OpenReader ("catalog.txt");
+
+				List<string> barcodes = new List<string> ();
+				List<string> materials = new List<string> ();
+
+				while (!catalog.EndOfStream)
+				{
+					string line = catalog.ReadLine ();
+					barcodes.Add (line.Substring (0, 6));
+					materials.Add (line);
+				}
+
+				string barcode = "";//barcode is a string becasue we would like 'Q' to be a valid entry for a barcode.
+
+				do
+				{
+					barcode = UI.PromptLine (@"
+--------------------------------------------------------------------------------
+	    Enter the barcode for the material that you'd like to return.
+When you are finished checking out materials, enter 'Q' for the barcode to quit.
+--------------------------------------------------------------------------------
+
+	- ");									
+					if (barcodes.Contains(barcode))//checks if barcode is in the array of barcodes
+					{
+						Console.WriteLine ();
+						string[] material = materials [barcodes.IndexOf (barcode)].Split (',');
+
+						Staff.CheckIn(name, staffPassword, password);
+
+						foreach (string x in material)
+						{
+							Console.WriteLine ("     " + x);
+						}
+
+						Console.WriteLine ("\n- ITEM RETURNED FOR " + name.ToUpper () + "  -  ");
+					}
+					else
+					{
+						if (barcode.ToLower () != "q") //makes it so if 'Q' is typed, invalid barcode isn't printed
+						{
+							Console.WriteLine ();
+							Console.WriteLine (@"
+-----------------------------------------------------------------------
+!!! Invalid barcode. Material is either checked out or nonexistent. !!!
+-----------------------------------------------------------------------");
+							Console.WriteLine ();
+						}
+					}
+				} while(barcode.ToUpper () != "Q");
+
+				catalog.Close ();
+
+				StreamWriter outMaterials = FIO.OpenWriter (FIO.GetLocation ("catalog.txt"), "checkedOut.txt");
+				StreamWriter updateCatalog = FIO.OpenWriter (FIO.GetLocation ("catalog.txt"), "catalog.txt");
+
+				Console.WriteLine ();
+				Console.WriteLine (" ALL RETURNED FOR " + name.ToUpper () + " ARE: \n");
 
 				updateCatalog.Close ();
 				outMaterials.Close ();
