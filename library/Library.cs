@@ -62,7 +62,7 @@ namespace library
 							break;
 						case "restore":
 							count++;
-							Staff.Restore();
+							Staff.Restore(staff);
 							break;
 						case "new user":
 							count++;

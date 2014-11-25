@@ -170,7 +170,7 @@ Please enter your staff password:
 								break;
 							case "restore":
 								count++;
-								Staff.Restore ();
+								Staff.Restore (staff);
 								break;
 							default:
 								Console.WriteLine (@"
@@ -229,7 +229,7 @@ Please enter your staff password:
 								break;
 							case "restore":
 								count++;
-								Staff.Restore ();
+								Staff.Restore (staff);
 								break;
 							case "check in":
 								count++;
@@ -254,23 +254,36 @@ You are not a staff member!  Please exit out and try again
 		}//end of outer else
 }//end of New User
 		
-		public static void Restore()
+		public static void Restore(Dictionary<string, string> staff)
 		{
 			StreamReader master = FIO.OpenReader ("master.txt");
 			StreamWriter catalog = FIO.OpenWriter (FIO.GetLocation ("catalog.txt"), "catalog.txt");
 			StreamWriter checkedOut = FIO.OpenWriter (FIO.GetLocation("checkedOut.txt"), "checkedOut.txt");
 
-			while (!master.EndOfStream)
+
+			string password = UI.PromptLine (@"
+Please enter your staff password: 
+- ");
+
+			if (staff.ContainsValue (password))
 			{
-				catalog.WriteLine (master.ReadLine ());
-			}
+				while (!master.EndOfStream)
+				{
+					catalog.WriteLine (master.ReadLine ());
+				}
 
-			while (!master.EndOfStream)
+				while (!master.EndOfStream)
+				{
+					checkedOut.WriteLine ("");
+				}
+			}
+			else
 			{
-				checkedOut.WriteLine ("");
+				password = UI.PromptLine (@"
+       !!!Wrong password!!!
+Please enter your staff password: 
+- ");
 			}
-
-
 			checkedOut.Close ();
 			master.Close ();
 			catalog.Close ();

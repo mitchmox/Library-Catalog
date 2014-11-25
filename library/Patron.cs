@@ -137,32 +137,8 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 --------------------------------------------------------------------------------
 
 	- ");									
-					if (barcodes.Contains(barcode))//checks if barcode is in the array of barcodes
-					{
-						Console.WriteLine ();
-						string[] material = materials [barcodes.IndexOf (barcode)].Split (',');
-
-						Staff.CheckIn(name, staffPassword, password);
-
-						foreach (string x in material)
-						{
-							Console.WriteLine ("     " + x);
-						}
-
-						Console.WriteLine ("\n- ITEM RETURNED FOR " + name.ToUpper () + "  -  ");
-					}
-					else
-					{
-						if (barcode.ToLower () != "q") //makes it so if 'Q' is typed, invalid barcode isn't printed
-						{
-							Console.WriteLine ();
-							Console.WriteLine (@"
------------------------------------------------------------------------
-!!! Invalid barcode. Material is either checked out or nonexistent. !!!
------------------------------------------------------------------------");
-							Console.WriteLine ();
-						}
-					}
+				//need to fix
+				Console.WriteLine ("\n- ITEM RETURNED FOR " + name.ToUpper () + "  -  ");
 				} while(barcode.ToUpper () != "Q");
 
 				catalog.Close ();
