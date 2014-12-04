@@ -52,6 +52,7 @@ namespace library
 			}while(pass!= staff[username][1]);
 
 			Console.Write(@"
+
       Welcome {0}!", username);
 
 			string command = "";
