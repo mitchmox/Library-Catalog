@@ -87,7 +87,7 @@ namespace library
 						break;
 					case "2":
 					case "return":
-					case "return books"
+					case "return books":
 						Console.WriteLine(@"
 ------------------------
 !!!BOOKS NOT RETURNED!!!
@@ -107,7 +107,7 @@ PASSWORD NOT RESET");
 					case "user":
 						Staff.NewUser (ref staff, ref patrons);
 						break;
-					case "5"
+					case "5":
 					case "restore":
 					case "restore library":
 						Staff.Restore ();
