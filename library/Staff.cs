@@ -237,28 +237,90 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 
 			username = UI.PromptLine ("Enter username for new user: ");
 
-			while(staff.ContainsKey(username) || patrons.ContainsKey(username))
-			{
-				Console.WriteLine("USERNAME IS ALREADY TAKEN");
+			while (staff.ContainsKey (username) || patrons.ContainsKey (username)) {
+				Console.WriteLine ("USERNAME IS ALREADY TAKEN");
 				username = UI.PromptLine ("Enter username for new user: ");
 			}
 				
 			string name = UI.PromptLine ("Enter name for new user: ");
-			
+
+
 			string password1 = "";
 			string password2 = "";
+			do {
 
-			password1 = UI.PromptLine ("Enter password for new user: ");
-			password2 = UI.PromptLine ("Re-Enter password for new user: ");
+				password1 = "";
+				password2 = "";
+				//obviously, send to a function
+
+				Console.Write (@"
+-------------------------------
+  Enter password for user: 
+-------------------------------
+ - ");
+
+
 			
-			while (password1 != password2)
-			{
-				Console.WriteLine("PASSWORDS DO NOT MATCH! PLEASE RE-ENTER!");
-				password1 = UI.PromptLine ("Enter password for new user: ");
-				password2 = UI.PromptLine ("Re-Enter password for new user: ");
-			}
+				ConsoleKeyInfo keys;
+
+				do {
+					keys = Console.ReadKey (true);
+
+					// Backspace Should Not Work
+					if (keys.Key != ConsoleKey.Backspace && keys.Key != ConsoleKey.Enter) {
+						password1 += keys.KeyChar;
+						Console.Write ("*");
+					} else {
+						if (keys.Key == ConsoleKey.Backspace && password1.Length > 0) {
+							password1 = password1.Substring (0, (password1.Length - 1));
+							Console.Write ("\b \b");
+						}
+					}
+					// Stops Receving Keys Once Enter is Pressed
+				} while (keys.Key != ConsoleKey.Enter);
+
+
+
+
+				//password2 = UI.PromptLine ("Re-Enter password for new user: ");
+
+
+
+				Console.Write (@"
+-------------------------------
+  Re-Enter password for new user: 
+-------------------------------
+ - ");
+
+				do {
+					keys = Console.ReadKey (true);
+
+					// Backspace Should Not Work
+					if (keys.Key != ConsoleKey.Backspace && keys.Key != ConsoleKey.Enter) {
+						password2 += keys.KeyChar;
+						Console.Write ("*");
+					} else {
+						if (keys.Key == ConsoleKey.Backspace && password2.Length > 0) {
+							password2 = password2.Substring (0, (password2.Length - 1));
+							Console.Write ("\b \b");
+						}
+					}
+					// Stops Receving Keys Once Enter is Pressed
+				} while (keys.Key != ConsoleKey.Enter);
+
+				Console.WriteLine ("");
+				if (password1 != password2) 
+				{
+					Console.WriteLine ("PASSWORDS DO NOT MATCH! PLEASE RE-ENTER!");
+				}
+
+			} while (password1 != password2);
+
 				
 			string password = password1;
+
+
+
 
 			string access = "";
 
