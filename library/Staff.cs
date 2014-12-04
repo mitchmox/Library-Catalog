@@ -83,11 +83,11 @@ namespace library
 					case "check":
 					case "check out":
 					case "out":
-						Patron.CheckOut (username);
+						Patron.CheckOut (UI.PromptLine("Whom would you like to check books out for?\n-"));
 						break;
 					case "2":
 					case "return":
-					case "return books"
+					case "return books":
 						Console.WriteLine(@"
 ------------------------
 !!!BOOKS NOT RETURNED!!!
@@ -100,14 +100,14 @@ namespace library
 						Console.WriteLine(@"
 -------------------------
 PASSWORD NOT RESET");
-						//Staff.ResetPassword();
+						//Staff.ResetPassword(UI.PromptLine("Whom would you like to change the book out for?\n-"));
 						break;
 					case "4":
 					case "add user":
 					case "user":
 						Staff.NewUser (ref staff, ref patrons);
 						break;
-					case "5"
+					case "5":
 					case "restore":
 					case "restore library":
 						Staff.Restore ();
@@ -123,7 +123,7 @@ PASSWORD NOT RESET");
 -------------------------------------------------");
 						break;
 				}
-			} while(!command.ToLower().Contains("6"));
+			} while(!(command.ToLower().Contains("6")));
 		}
 
 
