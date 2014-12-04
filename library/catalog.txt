@@ -2,7 +2,6 @@
 230002,Harry Potter and the Prisoner of Azkaban,J.K Rowling,1999
 230003,Harry Potter and the Goblet of Fire,J.K Rowling,2000
 230004,Harry Potter and the Order of the Phoenix,J.K Rowling,2003
-230005,Harry Potter and the Half-Blood Prince,J.K Rowling,2005
 230006,Harry Potter and the Deathly Hallows,J.K Rowling,2007
 230011,Odyssey,Homer - Trans. Robert Fagles,1990
 230012,Four Tragedies,Sophocles - Trans. Meineck and Woodruff,2007
@@ -21,7 +20,6 @@
 450005,Thriller,Michael Jackson,1982
 450006,The Dark Side Of The Moon,Pink Floyd,1973
 450007,The Bodyguard,Whitney Huston,1992
-450008,Their Greatest Hits,The Eagles, 1976
 450009,Back In Black,AC/DC,1980
 450010,Saturday Night Fever,Bee Gees,1977
 450011,Rumours,Fleetwood Mac,1977

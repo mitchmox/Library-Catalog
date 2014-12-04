@@ -47,7 +47,11 @@ namespace library
 
 				if(pass!= staff[username][1])
 				{
-					Console.WriteLine(" !!Incorrect Password!! ");
+					Console.WriteLine(@"
+------------------------
+!!!Incorrect Password!!!
+------------------------");
+
 				}
 			}while(pass!= staff[username][1]);
 
@@ -78,23 +82,39 @@ namespace library
 					case "1":
 					case "check":
 					case "check out":
+					case "out":
 						Patron.CheckOut (username);
 						break;
 					case "2":
-						Console.WriteLine("BOOKS NOT RETURNED");
+					case "return":
+					case "return books"
+						Console.WriteLine(@"
+------------------------
+!!!BOOKS NOT RETURNED!!!
+------------------------");
 						//Staff.Return (username);
 						break;
 					case "3":
-						Console.WriteLine("PASSWORD NOT RESET");
+					case "reset password":
+					case "reset":
+						Console.WriteLine(@"
+-------------------------
+PASSWORD NOT RESET");
 						//Staff.ResetPassword();
 						break;
 					case "4":
+					case "add user":
+					case "user":
 						Staff.NewUser (ref staff, ref patrons);
 						break;
-					case "5":
+					case "5"
+					case "restore":
+					case "restore library":
 						Staff.Restore ();
 						break;
 					case "6":
+					case "q":
+					case "quit":
 						break;
 					default:
 						Console.WriteLine (@"
@@ -276,12 +296,12 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 			if (access == "p")
 			{
 				patrons.Add(username, new string [] {name,password});
-				Console.WriteLine ("USER CReATED!");
+				Console.WriteLine ("USER CREATED!");
 			}
 			if (access == "s")
 			{
 				staff.Add(username, new string [] {name,password});
-				Console.WriteLine ("USER CReATED!");
+				Console.WriteLine ("USER CREATED!");
 			}
 
 			//i want to break this into a function but rn it work like this so it is ok
