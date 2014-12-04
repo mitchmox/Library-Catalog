@@ -65,7 +65,16 @@ namespace library
 		{           
 			string filePath = Path.Combine(location, filename);
 			return new StreamWriter(filePath);
+		}  //end OpenWriter chunk                     
+
+		// OpenWriter chunk     
+		/// Join the location directory and filename;
+		/// open and return a StreamWriter to the file. 
+		public static StreamWriter AppendText(string location, string filename) 
+		{           
+			string filePath = Path.Combine(location, filename);
+			return File.AppendText(filePath);
 		}
-	}                                        //end OpenWriter chunk                                      
+	}                                                       
 }    
 

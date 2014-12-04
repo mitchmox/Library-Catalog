@@ -38,8 +38,8 @@
     <Compile Include="UI.cs" />
     <Compile Include="FIO.cs" />
     <Compile Include="Patron.cs" />
-    <Compile Include="Library.cs" />
     <Compile Include="Staff.cs" />
+    <Compile Include="Main.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
