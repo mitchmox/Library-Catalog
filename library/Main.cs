@@ -42,9 +42,9 @@ namespace library
 				else
 				{
 					Console.WriteLine (@"
-------------------------------------------------
+---------------------------------------------
  !!! Username not found. Please try again !!! 
-------------------------------------------------");
+---------------------------------------------");
 				}
 	
 			} while(!(patrons.ContainsKey (username) || staff.ContainsKey (username)));
