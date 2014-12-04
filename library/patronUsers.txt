@@ -1,2 +1,3 @@
 kid,kidName,12
 bobby,BOB,12
+channah,CNAIMAN,hi

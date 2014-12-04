@@ -282,6 +282,26 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 				staff.Add(username, new string [] {name,password});
 				Console.WriteLine ("USER CReATED!");
 			}
+
+			//i want to break this into a function but rn it work like this so it is ok
+
+			StreamWriter staffUsers = FIO.OpenWriter (FIO.GetLocation("catalog.txt"),"staffUsers.txt");
+
+			foreach (string key in staff.Keys)
+			{	
+				staffUsers.WriteLine ("{0},{1},{2}", key, staff [key] [0], staff [key] [1]);
+			}
+
+			staffUsers.Close ();
+
+			StreamWriter patronUsers = FIO.OpenWriter (FIO.GetLocation("catalog.txt"),"patronUsers.txt");
+
+			foreach (string key in patrons.Keys)
+			{	
+				patronUsers.WriteLine ("{0},{1},{2}", key, patrons [key] [0], patrons [key] [1]);
+			}
+
+			patronUsers.Close ();
 		}
 
 
