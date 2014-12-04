@@ -1,10 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="library/Staff.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../grade_calc/grade_calc/grade_calc.cs">
     <Files>
-      <File FileName="library/Main.cs" Line="1" Column="1" />
-      <File FileName="library/Staff.cs" Line="7" Column="7" />
+      <File FileName="library/Main.cs" Line="24" Column="24" />
+      <File FileName="library/Staff.cs" Line="10" Column="10" />
       <File FileName="library/Patron.cs" Line="1" Column="1" />
+      <File FileName="library/FIO.cs" Line="6" Column="6" />
+      <File FileName="../grade_calc/grade_calc/grade_calc.cs" Line="5" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

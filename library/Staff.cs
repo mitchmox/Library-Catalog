@@ -45,6 +45,10 @@ namespace library
 					// Stops Receving Keys Once Enter is Pressed
 				}while (key.Key != ConsoleKey.Enter);
 
+				if(pass!= staff[username][1])
+				{
+					Console.WriteLine(" !!Incorrect Password!! ");
+				}
 			}while(pass!= staff[username][1]);
 
 			Console.Write(@"
@@ -71,6 +75,8 @@ namespace library
 				switch (command.ToLower ())
 				{
 					case "1":
+					case "check":
+					case "check out":
 						Patron.CheckOut (username);
 						break;
 					case "2":
@@ -228,47 +234,40 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 		{
 			string username = "";
 
-			do
+			username = UI.PromptLine ("Enter username for new user: ");
+
+			while(staff.ContainsKey(username) || patrons.ContainsKey(username))
 			{
+				Console.WriteLine("USERNAME IS ALREADY TAKEN");
 				username = UI.PromptLine ("Enter username for new user: ");
-
-				if(staff.ContainsKey(username) || patrons.ContainsKey(username))
-				{
-					Console.WriteLine("USERNAME IS ALREADY TAKEN");
-				}
-
-			} while(staff.ContainsKey(username) || patrons.ContainsKey(username));
+			}
 				
 			string name = UI.PromptLine ("Enter name for new user: ");
 			
 			string password1 = "";
 			string password2 = "";
 
-			do
+			password1 = UI.PromptLine ("Enter password for new user: ");
+			password2 = UI.PromptLine ("Re-Enter password for new user: ");
+			
+			while (password1 != password2)
 			{
+				Console.WriteLine("PASSWORDS DO NOT MATCH! PLEASE RE-ENTER!");
 				password1 = UI.PromptLine ("Enter password for new user: ");
 				password2 = UI.PromptLine ("Re-Enter password for new user: ");
+			}
 				
-				if(password1 != password2)
-				{
-					Console.WriteLine("PASSWORDS DO NOT MATCH! PLEASE RE-ENTER!");
-				}
-				
-			} while(password1 != password2);
-
 			string password = password1;
 
 			string access = "";
 
-			do
-			{
-				access = UI.PromptLine ("Select access level for new user. (\'p\' for patron, \'s\' for staff): ").ToLower();
+			access = UI.PromptLine ("Select access level for new user. (\'p\' for patron, \'s\' for staff): ").ToLower();
 
-				if(!(access == "p" || access == "s"))
-				{
-					Console.WriteLine ("User can not be created. Invalid access level.");
-				}
-			} while (!(access == "p" || access == "s"));
+			while(!(access == "p" || access == "s"))
+			{
+				Console.WriteLine ("User can not be created. Invalid access level.");
+				access = UI.PromptLine ("Select access level for new user. (\'p\' for patron, \'s\' for staff): ").ToLower();
+			}
 
 			Console.WriteLine ();
 
