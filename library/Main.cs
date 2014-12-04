@@ -12,8 +12,8 @@ namespace library
 
 			Dictionary<string,string[]> staff = new Dictionary <string,string[]> ();
 
-			staff ["admin"] = new string[] {"adminNmae", "1234"}; //creates entry level user so program can be run once
-			patrons ["kid"] = new string[] {"kidName", "12"};
+			staff ["admin"] = new string[] { "adminNmae", "1234" }; //creates entry level user so program can be run once
+			patrons ["kid"] = new string[] { "kidName", "12" };
 
 			//opens the users files and adds the contents to 
 			GetUsers ("patron", patrons);
@@ -47,29 +47,9 @@ namespace library
 ------------------------------------------------");
 				}
 	
-			} while(!(patrons.ContainsKey(username) || staff.ContainsKey (username)));
-
-			//i want to break this into a function but rn it work like this so it is ok
-
-			StreamWriter staffUsers = FIO.OpenWriter (FIO.GetLocation("catalog.txt"),"staffUsers.txt");
-
-			foreach (string key in staff.Keys)
-			{	
-				staffUsers.WriteLine ("{0},{1},{2}", key, staff [key] [0], staff [key] [1]);
-			}
-		
-			staffUsers.Close ();
-
-			StreamWriter patronUsers = FIO.OpenWriter (FIO.GetLocation("catalog.txt"),"patronUsers.txt");
-
-			foreach (string key in patrons.Keys)
-			{	
-				patronUsers.WriteLine ("{0},{1},{2}", key, patrons [key] [0], patrons [key] [1]);
-			}
-
-			patronUsers.Close ();
+			} while(!(patrons.ContainsKey (username) || staff.ContainsKey (username)));
 		}
-
+		
 
 
 
