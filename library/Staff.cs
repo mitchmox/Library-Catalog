@@ -124,7 +124,7 @@ PASSWORD NOT RESET");
 -------------------------------------------------");
 						break;
 				}
-			} while(!(command.ToLower().Contains("6")));
+			} while(!(command.ToLower().Contains("6") || command.ToLower().Contains("q") || (command.ToLower().Contains("quit"))));
 		}
 
 		public static void ResetPassword(string username)

@@ -13,13 +13,11 @@ namespace library
 			Dictionary<string,string[]> staff = new Dictionary <string,string[]> ();
 
 			staff ["admin"] = new string[] { "adminNmae", "1234" }; //creates entry level user so program can be run once
-			patrons ["kid"] = new string[] { "kidName", "12" };
 
-			//opens the users files and adds the contents to 
 			GetUsers ("patrons", patrons);
 			GetUsers ("staff", staff);
 
-			Console.WriteLine ("The D. Moxinuzzi Library LMS");
+			Console.WriteLine ("The D. Moxinuzzi Library LMS"); //welcome message
 
 			string username = "";
 
@@ -49,13 +47,12 @@ namespace library
 	
 			} while(!(patrons.ContainsKey (username) || staff.ContainsKey (username)));
 		}
-		
 
-
-
-
-
-
+		/// <summary>
+		/// Reads users in from their respective user files.
+		/// </summary>
+		/// <param name="userGroup">User group.</param>
+		/// <param name="userDict">User dict.</param>
 		public static void GetUsers(string userGroup, Dictionary<string,string[]> userDict)
 		{
 			if (FIO.GetLocation ("users-" + userGroup + ".txt") != "")
