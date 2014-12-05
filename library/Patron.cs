@@ -6,8 +6,6 @@ namespace library
 {
 	public class Patron: ILibrary 
 	{
-
-
 		/// <summary>
 		/// Validates the specified username and password for PATRON and then displays a menu of actions allowed to a PATRON user.
 		/// </summary>

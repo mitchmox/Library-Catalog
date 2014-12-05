@@ -133,7 +133,7 @@ PASSWORD NOT RESET");
 		}
 
 		/// <summary>
-		/// Checks out a material to the username sent to the function.
+		/// Checks out a material to the username sent to the function. (i.e. the user whom the STAFF user sent in line 87)
 		/// </summary>
 		/// <param name="name">Name.</param>
 		public static void CheckOut(string username)
