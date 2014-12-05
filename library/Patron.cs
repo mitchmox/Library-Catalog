@@ -8,13 +8,18 @@ namespace library
 	{
 
 
-
+		/// <summary>
+		/// Validates the specified username and password for PATRON and then displays a menu of actions allowed to a PATRON user.
+		/// </summary>
+		/// <param name="patrons">Patrons.</param>
+		/// <param name="username">Username.</param>
 		public static void Validate (Dictionary<string,string[]> patrons, string username)
 		{
 			string pass = "";
 			ConsoleKeyInfo key;
 
-			do{
+			do
+			{
 				pass = "";
 
 				Console.Write(@"
@@ -40,8 +45,8 @@ namespace library
 							Console.Write("\b \b");
 						}
 					}
-					// Stops Receving Keys Once Enter is Pressed
-				}while (key.Key != ConsoleKey.Enter);
+				
+				}while (key.Key != ConsoleKey.Enter); // Stops Receving Keys Once Enter is Pressed
 
 			}while(pass!= patrons[username][1]);
 
@@ -85,20 +90,10 @@ namespace library
 			} while(command.ToLower () != "4");	
 		}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		/// <summary>
+		/// Checks out a material to the username sent to the function. (i.e. the patron who is currently logged in)
+		/// </summary>
+		/// <param name="username">Username.</param>
 		public static void CheckOut(string username)
 		{
 			StreamReader catalog = FIO.OpenReader ("catalog.txt");
@@ -146,7 +141,7 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 				else
 				{
 
-					if (barcode.ToLower() != "q") //makes it so if 'Q' is typed, invalid barcode isn't printed
+					if (barcode.ToLower() != "q")
 					{
 						Console.WriteLine ();
 						Console.WriteLine (@"

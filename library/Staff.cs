@@ -127,7 +127,7 @@ PASSWORD NOT RESET");
 			} while(!(command.ToLower().Contains("6")));
 		}
 
-		public static void ResetPassword(string name)
+		public static void ResetPassword(string username)
 		{
 			Console.WriteLine("Password was not reset!");
 		}
