@@ -45,5 +45,7 @@
   <ItemGroup>
     <None Include="catalog.txt" />
     <None Include="checkedOut.txt" />
+    <None Include="users-patrons.txt" />
+    <None Include="users-staff.txt" />
   </ItemGroup>
 </Project>

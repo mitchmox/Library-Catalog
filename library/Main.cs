@@ -16,7 +16,7 @@ namespace library
 			patrons ["kid"] = new string[] { "kidName", "12" };
 
 			//opens the users files and adds the contents to 
-			GetUsers ("patron", patrons);
+			GetUsers ("patrons", patrons);
 			GetUsers ("staff", staff);
 
 			Console.WriteLine ("The D. Moxinuzzi Library LMS");
@@ -58,9 +58,9 @@ namespace library
 
 		public static void GetUsers(string usersgroup, Dictionary<string,string[]> userDict)
 		{
-			if (FIO.GetLocation (usersgroup + "Users.txt") != "")
+			if (FIO.GetLocation ("users-" + usersgroup + ".txt") != "")
 			{
-				StreamReader readUsers = FIO.OpenReader (usersgroup + "Users.txt");
+				StreamReader readUsers = FIO.OpenReader ("users-" + usersgroup + ".txt");
 
 				while (!readUsers.EndOfStream)
 				{

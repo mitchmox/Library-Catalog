@@ -3,3 +3,8 @@
 /Users/mitchmox/Documents/COMP 170/Library Catalog/library/bin/Debug/library.exe
 /Users/mitchmox/Documents/COMP 170/Library Catalog/library/obj/x86/Debug/library.exe
 /Users/mitchmox/Documents/COMP 170/Library Catalog/library/obj/x86/Debug/library.exe.mdb
+/Users/mmox/Desktop/Library-Catalog/library/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/mmox/Desktop/Library-Catalog/library/bin/Debug/library.exe.mdb
+/Users/mmox/Desktop/Library-Catalog/library/bin/Debug/library.exe
+/Users/mmox/Desktop/Library-Catalog/library/obj/x86/Debug/library.exe
+/Users/mmox/Desktop/Library-Catalog/library/obj/x86/Debug/library.exe.mdb

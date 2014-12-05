@@ -368,7 +368,7 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 
 			//i want to break this into a function but rn it work like this so it is ok
 
-			StreamWriter staffUsers = FIO.OpenWriter (FIO.GetLocation("catalog.txt"),"staffUsers.txt");
+			StreamWriter staffUsers = FIO.OpenWriter (FIO.GetLocation("catalog.txt"),"users-staff.txt");
 
 			foreach (string key in staff.Keys)
 			{	
@@ -377,7 +377,7 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 
 			staffUsers.Close ();
 
-			StreamWriter patronUsers = FIO.OpenWriter (FIO.GetLocation("catalog.txt"),"patronUsers.txt");
+			StreamWriter patronUsers = FIO.OpenWriter (FIO.GetLocation("catalog.txt"),"users-patrons.txt");
 
 			foreach (string key in patrons.Keys)
 			{	

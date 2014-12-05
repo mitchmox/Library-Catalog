@@ -70,6 +70,9 @@ namespace library
 					case "2":
 						//Patron.ResetPassword (username);
 						break;
+					case "3":
+						Console.WriteLine("Emanuel isn't here right now. Please try again later.");
+						break;
 					case "4":
 						break;
 					default:
