@@ -56,11 +56,11 @@ namespace library
 
 
 
-		public static void GetUsers(string usersgroup, Dictionary<string,string[]> userDict)
+		public static void GetUsers(string userGroup, Dictionary<string,string[]> userDict)
 		{
-			if (FIO.GetLocation ("users-" + usersgroup + ".txt") != "")
+			if (FIO.GetLocation ("users-" + userGroup + ".txt") != "")
 			{
-				StreamReader readUsers = FIO.OpenReader ("users-" + usersgroup + ".txt");
+				StreamReader readUsers = FIO.OpenReader ("users-" + userGroup + ".txt");
 
 				while (!readUsers.EndOfStream)
 				{

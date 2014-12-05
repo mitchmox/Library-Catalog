@@ -6,11 +6,12 @@ namespace library
 {
 	public class Staff: ILibrary 
 	{
-
-
-
-
-
+		/// <summary>
+		/// Validates the specified username and password for STAFF and then displays a menu of actions allowed to a STAFF user.
+		/// </summary>
+		/// <param name="staff">Staff.</param>
+		/// <param name="patrons">Patrons.</param>
+		/// <param name="username">Username.</param>
 		public static void Validate (ref Dictionary<string,string[]> staff, ref Dictionary<string,string[]> patrons,  string username)
 		{
 			string pass = "";
@@ -42,8 +43,8 @@ namespace library
 							Console.Write("\b \b");
 						}
 					}
-					// Stops Receving Keys Once Enter is Pressed
-				}while (key.Key != ConsoleKey.Enter);
+
+				}while (key.Key != ConsoleKey.Enter); // Stops Receving Keys Once Enter is Pressed
 
 				if(pass!= staff[username][1])
 				{
@@ -126,24 +127,16 @@ PASSWORD NOT RESET");
 			} while(!(command.ToLower().Contains("6")));
 		}
 
-
-
-
-
-
-
 		public static void ResetPassword(string name)
 		{
 			Console.WriteLine("Password was not reset!");
 		}
 
-
-
-
-
-
-
-		public static void CheckOut(string name)
+		/// <summary>
+		/// Checks out a material to the username sent to the function.
+		/// </summary>
+		/// <param name="name">Name.</param>
+		public static void CheckOut(string username)
 		{
 			StreamReader catalog = FIO.OpenReader ("catalog.txt");
 
@@ -159,7 +152,7 @@ PASSWORD NOT RESET");
 				materials.Add(line);
 			}
 
-			string barcode = "";//barcode is a string becasue we would like 'Q' to be a valid entry for a barcode.
+			string barcode = ""; 
 
 			do 
 			{
@@ -185,7 +178,7 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 						Console.WriteLine ("     " + x);
 					}
 
-					Console.WriteLine ("\n- ITEM CHECKED OUT TO "  + name.ToUpper () +"  -  ");
+					Console.WriteLine ("\n- ITEM CHECKED OUT TO "  + username.ToUpper () +"  -  ");
 				}
 				else
 				{
@@ -208,7 +201,7 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 			StreamWriter updateCatalog = FIO.OpenWriter (FIO.GetLocation ("catalog.txt"), "catalog.txt");
 
 			Console.WriteLine ();
-			Console.WriteLine (" ALL ITEMS CHECKED OUT TO " + name.ToUpper () + " ARE: \n");
+			Console.WriteLine (" ALL ITEMS CHECKED OUT TO " + username.ToUpper () + " ARE: \n");
 
 			foreach (string x in listOfCheckedOut)
 			{
@@ -234,30 +227,25 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 		}
 
 
-
-
-
-
 		public static void CheckIn()
 		{
 			Console.WriteLine("Material was not checked in!");
 		}
 
-
-
-
-
-
-
-
-
+		/// <summary>
+		/// Creates a new user.
+		/// </summary>
+		/// <param name="staff">Staff.</param>
+		/// <param name="patrons">Patrons.</param>
 		public static void NewUser(ref Dictionary<string, string[]> staff, ref Dictionary<string, string[]> patrons)
 		{
 			string username = "";
 
 			username = UI.PromptLine ("Enter username for new user: ");
 
-			while (staff.ContainsKey (username) || patrons.ContainsKey (username)) {
+			//checks if username is already taken by staff or patrons
+			while (staff.ContainsKey (username) || patrons.ContainsKey (username)) 
+			{
 				Console.WriteLine ("USERNAME IS ALREADY TAKEN");
 				username = UI.PromptLine ("Enter username for new user: ");
 			}
@@ -267,12 +255,14 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 
 			string password1 = "";
 			string password2 = "";
-			do {
+
+			do 
+			{
 
 				password1 = "";
 				password2 = "";
-				//obviously, send to a function
 
+				//asks for the password a first time
 				Console.Write (@"
 -------------------------------
   Enter password for user: 
@@ -283,54 +273,58 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 			
 				ConsoleKeyInfo keys;
 
-				do {
+				do 
+				{
 					keys = Console.ReadKey (true);
 
 					// Backspace Should Not Work
-					if (keys.Key != ConsoleKey.Backspace && keys.Key != ConsoleKey.Enter) {
+					if (keys.Key != ConsoleKey.Backspace && keys.Key != ConsoleKey.Enter) 
+					{
 						password1 += keys.KeyChar;
 						Console.Write ("*");
-					} else {
-						if (keys.Key == ConsoleKey.Backspace && password1.Length > 0) {
+					} else 
+					{
+						if (keys.Key == ConsoleKey.Backspace && password1.Length > 0) 
+						{
 							password1 = password1.Substring (0, (password1.Length - 1));
 							Console.Write ("\b \b");
 						}
 					}
-					// Stops Receving Keys Once Enter is Pressed
-				} while (keys.Key != ConsoleKey.Enter);
+
+				} while (keys.Key != ConsoleKey.Enter); // Stops Receving Keys Once Enter is Pressed
 
 
-
-
-				//password2 = UI.PromptLine ("Re-Enter password for new user: ");
-
-
-
+				//asks for the password a second time
 				Console.Write (@"
 -------------------------------
   Re-Enter password for new user: 
 -------------------------------
  - ");
 
-				do {
+				do 
+				{
 					keys = Console.ReadKey (true);
 
 					// Backspace Should Not Work
-					if (keys.Key != ConsoleKey.Backspace && keys.Key != ConsoleKey.Enter) {
+					if (keys.Key != ConsoleKey.Backspace && keys.Key != ConsoleKey.Enter) 
+					{
 						password2 += keys.KeyChar;
 						Console.Write ("*");
-					} else {
-						if (keys.Key == ConsoleKey.Backspace && password2.Length > 0) {
+					} else 
+					{
+						if (keys.Key == ConsoleKey.Backspace && password2.Length > 0) 
+						{
 							password2 = password2.Substring (0, (password2.Length - 1));
 							Console.Write ("\b \b");
 						}
 					}
-					// Stops Receving Keys Once Enter is Pressed
-				} while (keys.Key != ConsoleKey.Enter);
+
+				} while (keys.Key != ConsoleKey.Enter); // Stops Receving Keys Once Enter is Pressed
 
 				Console.WriteLine ("");
-				if (password1 != password2) 
-				{
+
+				if (password1 != password2) //if passwords do not match error message is shown
+				{ 
 					Console.WriteLine ("PASSWORDS DO NOT MATCH! PLEASE RE-ENTER!");
 				}
 
@@ -339,62 +333,56 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 				
 			string password = password1;
 
-
-
-
 			string access = "";
 
-			access = UI.PromptLine ("Select access level for new user. (\'p\' for patron, \'s\' for staff): ").ToLower();
+			access = UI.PromptLine ("Select access level for new user. (\'p\' for patron, \'s\' for staff): ").ToLower ();
 
-			while(!(access == "p" || access == "s"))
+			while (!(access == "p" || access == "s"))   //if access level given is an invalid input (i.e. p or s)
 			{
 				Console.WriteLine ("User can not be created. Invalid access level.");
-				access = UI.PromptLine ("Select access level for new user. (\'p\' for patron, \'s\' for staff): ").ToLower();
+				access = UI.PromptLine ("Select access level for new user. (\'p\' for patron, \'s\' for staff): ").ToLower ();
 			}
 
 			Console.WriteLine ();
 
-			//write to specific file
-			if (access == "p")
+			//adds user info to the proper list based on the access key given
+			if (access == "p") 
 			{
-				patrons.Add(username, new string [] {name,password});
+				patrons.Add (username, new string [] { name, password });
 				Console.WriteLine ("USER CREATED!");
 			}
-			if (access == "s")
+			if (access == "s") 
 			{
-				staff.Add(username, new string [] {name,password});
+				staff.Add (username, new string [] { name, password });
 				Console.WriteLine ("USER CREATED!");
 			}
 
-			//i want to break this into a function but rn it work like this so it is ok
+			//sends dictionaries of users to WriteUsers
+			WriteUsers ("patrons", patrons);
+			WriteUsers ("staff", staff);
 
-			StreamWriter staffUsers = FIO.OpenWriter (FIO.GetLocation("catalog.txt"),"users-staff.txt");
+		}
+			
+		/// <summary>
+		/// Writes the users to their respective files.
+		/// </summary>
+		/// <param name="userGroup">User group.</param>
+		/// <param name="userDict">User dict.</param>
+		public static void WriteUsers (string userGroup, Dictionary<string,string[]> userDict)
+		{
+			StreamWriter writeUsers = FIO.OpenWriter (FIO.GetLocation("catalog.txt"),"users-" + userGroup + ".txt");
 
-			foreach (string key in staff.Keys)
+			foreach (string key in userDict.Keys)
 			{	
-				staffUsers.WriteLine ("{0},{1},{2}", key, staff [key] [0], staff [key] [1]);
+				writeUsers.WriteLine ("{0},{1},{2}", key,  userDict[key] [0], userDict [key] [1]);
 			}
 
-			staffUsers.Close ();
-
-			StreamWriter patronUsers = FIO.OpenWriter (FIO.GetLocation("catalog.txt"),"users-patrons.txt");
-
-			foreach (string key in patrons.Keys)
-			{	
-				patronUsers.WriteLine ("{0},{1},{2}", key, patrons [key] [0], patrons [key] [1]);
-			}
-
-			patronUsers.Close ();
+			writeUsers.Close ();
 		}
 
-
-
-
-
-
-
-
-
+		/// <summary>
+		/// Restores the library catalog. (In a sense, checks all books back into the library. Primarily used for testing purposes.)
+		/// </summary>
 		public static void Restore()
 		{
 			StreamReader master = FIO.OpenReader ("master.txt");
