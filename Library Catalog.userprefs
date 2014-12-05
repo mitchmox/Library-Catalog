@@ -1,11 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="library\Library.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="library/Staff.cs">
     <Files>
-      <File FileName="library\Library.cs" Line="34" Column="34" />
-      <File FileName="library\Patron.cs" Line="6" Column="6" />
-      <File FileName="library\Staff.cs" Line="25" Column="25" />
-      <File FileName="library\catalog.txt" Line="1" Column="1" />
+      <File FileName="library/Main.cs" Line="21" Column="4" />
+      <File FileName="library/Staff.cs" Line="127" Column="119" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

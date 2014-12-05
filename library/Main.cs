@@ -12,7 +12,7 @@ namespace library
 
 			Dictionary<string,string[]> staff = new Dictionary <string,string[]> ();
 
-			staff ["admin"] = new string[] { "adminNmae", "1234" }; //creates entry level user so program can be run once
+			staff ["admin"] = new string[] { "adminNmae", "1234" }; //creates entry level user so program can be run once to add more users
 
 			GetUsers ("patrons", patrons);
 			GetUsers ("staff", staff);
