@@ -13,42 +13,12 @@ namespace library
 		/// <param name="username">Username.</param>
 		public static void Validate (Dictionary<string,string[]> patrons, string username)
 		{
-			string pass = "";
-			ConsoleKeyInfo key;
+			Account.GetPassword(patrons[username][1]);
 
-			do
-			{
-				pass = "";
+			Console.Write(@"
 
-				Console.Write(@"
--------------------------------
-  Please enter your password: 
--------------------------------
- - ");
-				do
-				{
-					key = Console.ReadKey(true);
+      Welcome {0}!", username);
 
-					// Backspace Should Not Work
-					if (key.Key != ConsoleKey.Backspace && key.Key != ConsoleKey.Enter)
-					{
-						pass += key.KeyChar;
-						Console.Write("*");
-					}
-					else
-					{
-						if (key.Key == ConsoleKey.Backspace && pass.Length > 0)
-						{
-							pass = pass.Substring(0, (pass.Length - 1));
-							Console.Write("\b \b");
-						}
-					}
-				
-				}while (key.Key != ConsoleKey.Enter); // Stops Receving Keys Once Enter is Pressed
-
-			}while(pass!= patrons[username][1]);
-
-			Console.WriteLine ("\nWelcome {0}!", username);
 
 			string command = "";
 
@@ -61,10 +31,10 @@ namespace library
    You may:
     1 - check out
     2 - reset password
-    3 - ask Emanuel for assistance
+    3 - ask Emmanuel for assistance
     4 - quit
  - ");
-
+				Console.WriteLine();
 				switch (command.ToLower ())
 				{
 					case "1":
