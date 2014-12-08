@@ -29,8 +29,8 @@ namespace library
   How may we assist you? 
 
        You may:
-    1 - check out
-    2 - return books
+    1 - check out materials
+    2 - check in materials
     3 - reset password
     4 - add user
     5 - restore library
@@ -70,7 +70,18 @@ namespace library
 					case "3":
 					case "reset password":
 					case "reset":
-						Account.ResetPassword(UI.PromptLine("For whom would you like to change the password?\n-"), ref staff, ref patrons);
+						string resetUser = UI.PromptLine("For whom would you like to change the password?\n-");
+
+						while (!(patrons.ContainsKey (resetUser) || staff.ContainsKey (resetUser))) 
+						{
+							Console.WriteLine (@"
+---------------------------------------------
+!!! Username not found. Please try again !!! 
+---------------------------------------------");
+
+							resetUser = UI.PromptLine("For whom would you like to change the password?\n-");
+						}
+						Account.ResetPassword(resetUser, ref staff, ref patrons);
 						break;
 					case "4":
 					case "add user":

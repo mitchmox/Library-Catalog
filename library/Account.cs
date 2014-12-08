@@ -133,11 +133,11 @@ namespace library
 
 				}while(pass!= staff [username] [1]);
 
-				staff [username] [1] = PasswordMatch ();
+				staff [username] [1] = ResetPasswordMatch ();
 
 				WriteUsers ("staff", staff);
 			}
-			else 
+			else if (patrons.ContainsKey(username))
 			{
 				string pass = "";
 				ConsoleKeyInfo key;
@@ -182,11 +182,92 @@ namespace library
 					}
 				}while(pass!= patrons [username] [1]);
 
-				patrons [username] [1] = PasswordMatch ();
+				patrons [username] [1] = ResetPasswordMatch ();
+
 				WriteUsers ("patrons", patrons);
 			}
 
-			Console.WriteLine("/nPassword for " + username + " has been changed");
+
+			Console.WriteLine("\nPassword for " + username + " has been changed");
+		}
+
+		public static string ResetPasswordMatch()
+		{
+			string password1 = "";
+			string password2 = "";
+
+			do 
+			{
+
+				password1 = "";
+				password2 = "";
+
+				//asks for the password a first time
+				Console.Write (@"
+-------------------------------
+  Enter NEW password for user: 
+-------------------------------
+ - ");
+				ConsoleKeyInfo keys;
+
+				do 
+				{
+					keys = Console.ReadKey (true);
+
+					// Backspace Should Not Work
+					if (keys.Key != ConsoleKey.Backspace && keys.Key != ConsoleKey.Enter) 
+					{
+						password1 += keys.KeyChar;
+						Console.Write ("*");
+					} else 
+					{
+						if (keys.Key == ConsoleKey.Backspace && password1.Length > 0) 
+						{
+							password1 = password1.Substring (0, (password1.Length - 1));
+							Console.Write ("\b \b");
+						}
+					}
+
+				} while (keys.Key != ConsoleKey.Enter); // Stops Receving Keys Once Enter is Pressed
+
+
+				//asks for the password a second time
+				Console.Write (@"
+----------------------------------
+  Re-enter NEW password for user: 
+----------------------------------
+ - ");
+
+				do 
+				{
+					keys = Console.ReadKey (true);
+
+					// Backspace Should Not Work
+					if (keys.Key != ConsoleKey.Backspace && keys.Key != ConsoleKey.Enter) 
+					{
+						password2 += keys.KeyChar;
+						Console.Write ("*");
+					} else 
+					{
+						if (keys.Key == ConsoleKey.Backspace && password2.Length > 0) 
+						{
+							password2 = password2.Substring (0, (password2.Length - 1));
+							Console.Write ("\b \b");
+						}
+					}
+
+				} while (keys.Key != ConsoleKey.Enter); // Stops Receving Keys Once Enter is Pressed
+
+				Console.WriteLine ("");
+
+				if (password1 != password2) //if passwords do not match error message is shown
+				{ 
+					Console.WriteLine ("PASSWORDS DO NOT MATCH! PLEASE RE-ENTER!");
+				}
+
+			} while (password1 != password2);
+
+			return password1;
 		}
 
 		public static void GetPassword(string userPassword)
@@ -200,7 +281,7 @@ namespace library
 
 				Console.Write(@"
 -------------------------------
-  Please enter your NEW password: 
+  Please enter your password: 
 -------------------------------
  - ");
 				do
