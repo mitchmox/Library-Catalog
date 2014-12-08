@@ -61,11 +61,7 @@ namespace library
 					case "2":
 					case "return":
 					case "return books":
-						Console.WriteLine(@"
-------------------------
-!!!BOOKS NOT RETURNED!!!
-------------------------");
-						//Staff.Return (username);
+						Staff.CheckIn();
 						break;
 					case "3":
 					case "reset password":
@@ -111,11 +107,10 @@ namespace library
 		/// Checks out a material to the username sent to the function. (i.e. the user whom the STAFF user sent in line 87)
 		/// </summary>
 		/// <param name="name">Name.</param>
-		public static void CheckOut(string username)
+		public static void CheckOut(string username, List<string> barcodes)
 		{
 			StreamReader catalog = FIO.OpenReader ("catalog.txt");
 
-			List<string> barcodes = new List<string>();
 			List<string> materials = new List<string>();
 
 			List<string> listOfCheckedOut = new List<string> ();
@@ -204,8 +199,85 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 
 		public static void CheckIn()
 		{
-			Console.WriteLine("Material was not checked in!");
-		}
+				StreamReader checkedOut = FIO.OpenReader ("checkedOut.txt");
+				List<string> barcodes = new List<string>();
+				List<string> listOfCheckedOut = new List<string> ();
+				List<string> listOfCheckedIn = new List<string> ();
+
+
+			while (!checkedOut.EndOfStream)
+				{
+					string line = checkedOut.ReadLine ();
+					barcodes.Add (line.Substring (0, 6));
+					listOfCheckedOut.Add(line);
+				}
+
+				string barcode = "";//barcode is a string becasue we would like 'Q' to be a valid entry for a barcode.
+
+				do 
+				{
+					barcode = UI.PromptLine (@"
+-------------------------------------------------------------------------------
+         Enter the barcode for the material that you'd like to check in. 
+When you are finished checking in materials, enter 'Q' for the barcode to quit.
+-------------------------------------------------------------------------------
+
+- ");									
+					if (barcodes.Contains (barcode))//checks if barcode is in the array of barcodes
+					{
+						Console.WriteLine();
+						string[] material = listOfCheckedOut[barcodes.IndexOf(barcode)].Split(',');
+
+						
+						//removes the materials from available barcodes and materials list
+					listOfCheckedIn.Add(listOfCheckedOut[barcodes.IndexOf(barcode)].Remove(listOfCheckedOut[barcodes.IndexOf(barcode)].LastIndexOf(",")));
+						
+						listOfCheckedOut.Remove(listOfCheckedOut[barcodes.IndexOf(barcode)]);
+						barcodes.Remove(barcode);
+
+						foreach (string x in material)
+						{
+							Console.WriteLine ("     " + x);
+						}
+
+					Console.WriteLine ("\n- ITEM CHECKED IN");
+					}
+					else
+					{
+
+						if (barcode.ToLower() != "q")
+						{
+							Console.WriteLine ();
+							Console.WriteLine (@"
+----------------------------------------------------------------------
+!!! Invalid barcode. Material is either checked in or nonexistent. !!!
+----------------------------------------------------------------------");
+							Console.WriteLine ();
+						}
+					}
+				}while(barcode.ToUpper() != "Q");
+
+				checkedOut.Close ();
+
+				StreamWriter outMaterials = FIO.OpenWriter(FIO.GetLocation ("catalog.txt"), "checkedOut.txt");
+				StreamWriter updateCatalog = FIO.AppendText (FIO.GetLocation ("catalog.txt"), "catalog.txt");
+
+				Console.WriteLine ();
+
+				foreach (string x in listOfCheckedOut)
+				{
+					outMaterials.WriteLine (x);
+				}
+
+				foreach (string x in listOfCheckedIn)
+				{
+					updateCatalog.WriteLine (x);
+				}
+
+				updateCatalog.Close ();
+				outMaterials.Close ();
+			}
+
 
 		/// <summary>
 		/// Creates a new user.
