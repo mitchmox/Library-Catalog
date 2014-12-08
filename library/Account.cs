@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace library
 {
-	public class Account()
+	public class Account
 	{
 		public static string PasswordMatch()
 		{
@@ -200,7 +200,7 @@ namespace library
 
 				Console.Write(@"
 -------------------------------
-  Please enter your password: 
+  Please enter your NEW password: 
 -------------------------------
  - ");
 				do

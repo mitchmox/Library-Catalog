@@ -96,11 +96,6 @@ namespace library
 			} while(!(command.ToLower().Contains("6") || command.ToLower().Contains("q") || (command.ToLower().Contains("quit"))));
 		}
 
-		public static void ResetPassword(string username)
-		{
-
-		}
-
 		/// <summary>
 		/// Checks out a material to the username sent to the function. (i.e. the user whom the STAFF user sent in line 87)
 		/// </summary>
