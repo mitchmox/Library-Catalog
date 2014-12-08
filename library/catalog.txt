@@ -1,6 +1,7 @@
-230002,Harry Potter and the Prisoner of Azkaban,J.K Rowling,1999
+230001,Harry Potter and the Chamber of Secrets,J.K Rowling,1998
 230003,Harry Potter and the Goblet of Fire,J.K Rowling,2000
 230004,Harry Potter and the Order of the Phoenix,J.K Rowling,2003
+230005,Harry Potter and the Half-Blood Prince,J.K Rowling,2005
 230006,Harry Potter and the Deathly Hallows,J.K Rowling,2007
 230011,Odyssey,Homer - Trans. Robert Fagles,1990
 230012,Four Tragedies,Sophocles - Trans. Meineck and Woodruff,2007
@@ -28,10 +29,10 @@
 660002,Avatar,James Cameron,2009
 660003,Titanic,James Cameron,1997
 660004,The Avengers,Joss Whedon,2012
-660005,Harry Potter and the Deathly Hallows - Part 2,David Yates,2011
 660006,Frozen,Chris Buck/Jennifer Lee,2013
 660007,Iron Man 3,Shane Black,2013
 660008,Transformers: Dark of the Moon,Michael Bay,2011
 660009,The Lord of the Rings: The Return of the King,Peter Jackson,2003
 660010,Skyfall,Sam Mendes,2012
 660011,Transformers: Age of Extinction,Michael Bay,2014
+230002,Harry Potter and the Prisoner of Azkaban,J.K Rowling,1999
