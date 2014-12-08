@@ -11,7 +11,7 @@ namespace library
 		/// </summary>
 		/// <param name="patrons">Patrons.</param>
 		/// <param name="username">Username.</param>
-		public static void Validate (Dictionary<string,string[]> patrons, string username)
+		public static void Validate (ref Dictionary<string,string[]> staff, ref Dictionary<string,string[]> patrons, string username)
 		{
 			Account.GetPassword(patrons[username][1]);
 
@@ -38,15 +38,26 @@ namespace library
 				switch (command.ToLower ())
 				{
 					case "1":
+					case "check out":
+					case "check":
+					case "out":
 						Patron.CheckOut (username);
 						break;
 					case "2":
-						//Patron.ResetPassword (username);
+					case "reset":
+					case "reset password":
+						Account.ResetPassword (username, ref staff, ref patrons);
 						break;
 					case "3":
+					case "ask Emmanuel for assistance":
+				    case "ask Emmanuel":
+					case "ask":
+					case "assistance":
 						Console.WriteLine("Emanuel isn't here right now. Please try again later.");
 						break;
 					case "4":
+					case "q":
+					case "quit":
 						break;
 					default:
 						Console.WriteLine (@"
@@ -55,7 +66,7 @@ namespace library
 -------------------------------------------------");
 						break;
 				}
-			} while(command.ToLower () != "4");	
+			} while(!(command.ToLower().Contains("4") || command.ToLower().Contains("q") || (command.ToLower().Contains("quit"))));	
 		}
 
 		/// <summary>
