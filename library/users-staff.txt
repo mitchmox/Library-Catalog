@@ -1,7 +1,0 @@
-<<<<<<< HEAD
-=======
-admin,adminNmae,1234
-mitchmox,123,juneview
-dbafia,DAniel,12
-eva,eva,coffees
->>>>>>> FETCH_HEAD

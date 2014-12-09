@@ -1,7 +1,0 @@
-<<<<<<< HEAD
-=======
-kid,kidName,12
-mitchmoxxxx,MOX,1234
-paulette,Paulette Matuk,hello
-kbudz,kev,123
->>>>>>> FETCH_HEAD
