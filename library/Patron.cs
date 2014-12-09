@@ -11,7 +11,7 @@ namespace library
 		/// </summary>
 		/// <param name="patrons">Patrons.</param>
 		/// <param name="username">Username.</param>
-		public static void Validate (Dictionary<string,string[]> patrons, string username)
+		public static void Validate (ref Dictionary<string,string[]> staff, ref Dictionary<string,string[]> patrons, string username)
 		{
 			Account.GetPassword(patrons[username][1]);
 
@@ -39,6 +39,7 @@ namespace library
 				{
 					case "1":
 					case "check out":
+<<<<<<< HEAD
 						Patron.CheckOut (username);
 						break;
 					case "2":
@@ -53,6 +54,27 @@ namespace library
 					case "4":
 					case "quit":
 					case "q":
+=======
+					case "check":
+					case "out":
+						Patron.CheckOut (username);
+						break;
+					case "2":
+					case "reset":
+					case "reset password":
+						Account.ResetPassword (username, ref staff, ref patrons);
+						break;
+					case "3":
+					case "ask Emmanuel for assistance":
+				    case "ask Emmanuel":
+					case "ask":
+					case "assistance":
+						Console.WriteLine("Emanuel isn't here right now. Please try again later.");
+						break;
+					case "4":
+					case "q":
+					case "quit":
+>>>>>>> FETCH_HEAD
 						break;
 					default:
 						Console.WriteLine (@"

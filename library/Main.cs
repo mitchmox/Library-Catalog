@@ -27,7 +27,7 @@ namespace library
 
 				if (patrons.ContainsKey (username))
 				{
-					Patron.Validate (patrons, username);
+					Patron.Validate (ref staff,ref patrons, username);
 				}
 				else if (staff.ContainsKey (username))
 				{
