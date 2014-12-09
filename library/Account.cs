@@ -6,6 +6,46 @@ namespace library
 {
 	public class Account
 	{
+		/// <summary>
+		/// Ensures that a specific username exists and then returns that username
+		/// </summary>
+		/// <returns>The username.</returns>
+		/// <param name="prompt">Prompt.</param>
+		/// <param name="error">Error.</param>
+		/// <param name="staff">Staff.</param>
+		/// <param name="patrons">Patrons.</param>
+		public static string GetUsername(string prompt, string error, ref Dictionary<string,string[]> staff, ref Dictionary<string,string[]> patrons)
+		{
+			string username = UI.PromptLine(prompt + "\n-").ToLower();
+
+			while (!(patrons.ContainsKey (username) || staff.ContainsKey (username))) 
+			{
+				for (int i = 0; i < error.Length + 10; i++)
+				{
+					Console.Write("-");
+				}
+
+				Console.WriteLine();
+
+				Console.WriteLine(" !!! " + error + " !!! ");
+
+				for (int i = 0; i < error.Length + 10; i++)
+				{
+					Console.Write("-");
+				}
+
+				Console.WriteLine();
+
+				username = UI.PromptLine(prompt + "\n-").ToLower();
+			}
+
+			return username;
+		}
+
+		/// <summary>
+		/// Makes sure that two passwords match
+		/// </summary>
+		/// <returns>The match.</returns>
 		public static string PasswordMatch()
 		{
 			string password1 = "";
@@ -85,6 +125,12 @@ namespace library
 			return password1;
 		}
 
+		/// <summary>
+		/// Resets the password for a specific username
+		/// </summary>
+		/// <param name="username">Username.</param>
+		/// <param name="staff">Staff.</param>
+		/// <param name="patrons">Patrons.</param>
 		public static void ResetPassword(string username, ref Dictionary<string,string[]> staff, ref Dictionary<string,string[]> patrons)
 		{
 			if (staff.ContainsKey(username))
@@ -191,6 +237,10 @@ namespace library
 			Console.WriteLine("\nPassword for " + username + " has been changed");
 		}
 
+		/// <summary>
+		/// Makes sure that passwords match for a password reset.
+		/// </summary>
+		/// <returns>The password match.</returns>
 		public static string ResetPasswordMatch()
 		{
 			string password1 = "";
@@ -270,6 +320,10 @@ namespace library
 			return password1;
 		}
 
+		/// <summary>
+		/// Gets the password from a user and checks to see if it is the correct password
+		/// </summary>
+		/// <param name="userPassword">User password.</param>
 		public static void GetPassword(string userPassword)
 		{
 			string pass = "";

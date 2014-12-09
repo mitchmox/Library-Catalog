@@ -4,14 +4,10 @@ using System.IO;
 
 namespace library
 {
-	class MainClass
+	class MainClass:Library //takes an instance of Library and therefore has the two user dictionaries
 	{
 		public static void Main ()
 		{
-			Dictionary<string,string[]> patrons = new Dictionary <string,string[]> ();
-
-			Dictionary<string,string[]> staff = new Dictionary <string,string[]> ();
-
 			staff ["admin"] = new string[] { "adminNmae", "1234" }; //creates entry level user so program can be run once to add more users
 
 			GetUsers ("patrons", patrons);

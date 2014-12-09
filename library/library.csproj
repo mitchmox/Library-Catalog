@@ -34,13 +34,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ILibrary.cs" />
     <Compile Include="UI.cs" />
     <Compile Include="FIO.cs" />
     <Compile Include="Patron.cs" />
     <Compile Include="Staff.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Account.cs" />
+    <Compile Include="Library.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

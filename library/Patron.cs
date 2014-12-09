@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace library
 {
-	public class Patron: ILibrary 
+	public class Patron 
 	{
 		/// <summary>
 		/// Validates the specified username and password for PATRON and then displays a menu of actions allowed to a PATRON user.
@@ -25,28 +25,34 @@ namespace library
 			do
 			{
 				command = UI.PromptLine (@"
---------------------------
-  How may we assist you? 
---------------------------
-   You may:
-    1 - check out
-    2 - reset password
-    3 - ask Emmanuel for assistance
-    4 - quit
+--------------------------------
+     How may we assist you?       
+
+    1 - Check out materials
+    2 - Reset password
+    3 - Ask Emmanuel for help    
+    4 - Quit (Q)
+--------------------------------
  - ");
 				Console.WriteLine();
 				switch (command.ToLower ())
 				{
 					case "1":
+					case "check out":
 						Patron.CheckOut (username);
 						break;
 					case "2":
-						//Patron.ResetPassword (username);
+					case "reset password":
+						Account.ResetPassword (username, ref patrons, ref patrons);
 						break;
 					case "3":
+					case "ask Emmanuel":
+					case "ask":
 						Console.WriteLine("Emanuel isn't here right now. Please try again later.");
 						break;
 					case "4":
+					case "quit":
+					case "q":
 						break;
 					default:
 						Console.WriteLine (@"
@@ -55,7 +61,7 @@ namespace library
 -------------------------------------------------");
 						break;
 				}
-			} while(command.ToLower () != "4");	
+			} while(!(command.ToLower().Contains("4") || command.ToLower().Contains("q") || (command.ToLower().Contains("quit"))));	
 		}
 
 		/// <summary>
@@ -113,9 +119,9 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 					{
 						Console.WriteLine ();
 						Console.WriteLine (@"
------------------------------------------------------------------------
-!!! Invalid barcode. Material is either checked out or nonexistent. !!!
------------------------------------------------------------------------");
+-------------------------------------------------------------------------
+ !!! Invalid barcode. Material is either checked out or nonexistent. !!!
+-------------------------------------------------------------------------");
 						Console.WriteLine ();
 					}
 				}
@@ -151,6 +157,10 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 
 			updateCatalog.Close ();
 			outMaterials.Close ();
+
+			Console.WriteLine ("Press any key to continue...");
+
+			Console.ReadLine ();
 		}
 	} 
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace library
 {
-	public class Staff: ILibrary 
+	public class Staff 
 	{
 		/// <summary>
 		/// Validates the specified username and password for STAFF and then displays a menu of actions allowed to a STAFF user.
@@ -16,26 +16,34 @@ namespace library
 		{
 			Account.GetPassword (staff [username] [1]);
 
-			Console.Write(@"
+			string welcome = "Welcome " + username + "!";
 
-      Welcome {0}!", username);
+			Console.WriteLine ();
+			Console.WriteLine ();
+
+			for (int i = 0; i < (30 - welcome.Length) / 2; i++)
+			{
+				Console.Write (" ");
+			}
+
+			Console.Write(welcome);
 
 			string command = "";
 
 			do
 			{
 				command = UI.PromptLine (@"
---------------------------
-  How may we assist you? 
+------------------------------
+    How may we assist you?     
 
-       You may:
-    1 - check out materials
-    2 - check in materials
-    3 - reset password
-    4 - add user
-    5 - restore library
-    6 - quit
---------------------------
+    1 - Check out materials
+    2 - Check in materials
+    3 - Reset user password
+    4 - Add user
+    5 - Restore library
+    6 - See all out materials
+    7 - Quit (Q)
+------------------------------
  - ");
 				Console.WriteLine();
 				switch (command.ToLower ())
@@ -44,19 +52,7 @@ namespace library
 					case "check":
 					case "check out":
 					case "out":
-						string checkoutUser = UI.PromptLine("Whom would you like to check books out for?\n-");
-
-						while (!(patrons.ContainsKey (checkoutUser) || staff.ContainsKey (checkoutUser))) 
-						{
-							Console.WriteLine (@"
----------------------------------------------
-!!! Username not found. Please try again !!! 
----------------------------------------------");
-
-							checkoutUser = UI.PromptLine("Whom would you like to check books out for?\n-");
-						}
-
-						Patron.CheckOut(checkoutUser);
+						Patron.CheckOut(Account.GetUsername("Whom would you like to check books out for?", "Username not found. Please try again.", ref staff, ref patrons));
 						break;
 					case "2":
 					case "return":
@@ -66,18 +62,7 @@ namespace library
 					case "3":
 					case "reset password":
 					case "reset":
-						string resetUser = UI.PromptLine("For whom would you like to change the password?\n-");
-
-						while (!(patrons.ContainsKey (resetUser) || staff.ContainsKey (resetUser))) 
-						{
-							Console.WriteLine (@"
----------------------------------------------
-!!! Username not found. Please try again !!! 
----------------------------------------------");
-
-							resetUser = UI.PromptLine("For whom would you like to change the password?\n-");
-						}
-						Account.ResetPassword(resetUser, ref staff, ref patrons);
+						Account.ResetPassword(Account.GetUsername("For which user would you like to reset the password?", "Username not found. Please try again.", ref staff, ref patrons), ref staff, ref patrons);
 						break;
 					case "4":
 					case "add user":
@@ -90,6 +75,11 @@ namespace library
 						Staff.Restore ();
 						break;
 					case "6":
+					case "see all out materials":
+					case "see out":
+						Staff.ShowOutMaterials();
+						break;
+					case "7":
 					case "q":
 					case "quit":
 						break;
@@ -100,103 +90,12 @@ namespace library
 -------------------------------------------------");
 						break;
 				}
-			} while(!(command.ToLower().Contains("6") || command.ToLower().Contains("q") || (command.ToLower().Contains("quit"))));
+			} while(!(command.ToLower().Contains("7") || command.ToLower().Contains("q") || (command.ToLower().Contains("quit"))));
 		}
 
 		/// <summary>
-		/// Checks out a material to the username sent to the function. (i.e. the user whom the STAFF user sent in line 87)
+		/// Checks in a material. REMOVES from checkedOut.txt and ADDS back to catalog.txt
 		/// </summary>
-		/// <param name="name">Name.</param>
-		public static void CheckOut(string username, List<string> barcodes)
-		{
-			StreamReader catalog = FIO.OpenReader ("catalog.txt");
-
-			List<string> materials = new List<string>();
-
-			List<string> listOfCheckedOut = new List<string> ();
-
-			while (!catalog.EndOfStream)
-			{
-				string line = catalog.ReadLine ();
-				barcodes.Add(line.Substring(0,6));
-				materials.Add(line);
-			}
-
-			string barcode = ""; 
-
-			do 
-			{
-				barcode = UI.PromptLine (@"
---------------------------------------------------------------------------------
-        Enter the barcode for the material that you'd like to check out. 
-When you are finished checking out materials, enter 'Q' for the barcode to quit.
---------------------------------------------------------------------------------
-
-- ");									
-				if (barcodes.Contains (barcode))//checks if barcode is in the array of barcodes
-				{
-					Console.WriteLine();
-					string[] material = materials[barcodes.IndexOf(barcode)].Split(',');
-					listOfCheckedOut.Add(materials[barcodes.IndexOf(barcode)]);
-
-					//removes the materials from available barcodes and materials list
-					materials.Remove(materials[barcodes.IndexOf(barcode)]);
-					barcodes.Remove(barcode);
-
-					foreach (string x in material)
-					{
-						Console.WriteLine ("     " + x);
-					}
-
-					Console.WriteLine ("\n- ITEM CHECKED OUT TO "  + username.ToUpper () +"  -  ");
-				}
-				else
-				{
-
-					if (barcode.ToLower() != "q") //makes it so if 'Q' is typed, invalid barcode isn't printed
-					{
-						Console.WriteLine ();
-						Console.WriteLine (@"
------------------------------------------------------------------------
-!!! Invalid barcode. Material is either checked out or nonexistent. !!!
------------------------------------------------------------------------");
-						Console.WriteLine ();
-					}
-				}
-			}while(barcode.ToUpper() != "Q");
-
-			catalog.Close ();
-
-			StreamWriter outMaterials = FIO.OpenWriter (FIO.GetLocation ("catalog.txt"), "checkedOut.txt");
-			StreamWriter updateCatalog = FIO.OpenWriter (FIO.GetLocation ("catalog.txt"), "catalog.txt");
-
-			Console.WriteLine ();
-			Console.WriteLine (" ALL ITEMS CHECKED OUT TO " + username.ToUpper () + " ARE: \n");
-
-			foreach (string x in listOfCheckedOut)
-			{
-				outMaterials.WriteLine (x);
-
-				string[] material = x.Split (',');
-
-				foreach (string y in material)
-				{
-					Console.WriteLine ("     " + y);
-				}
-
-				Console.WriteLine ();
-			}
-
-			foreach (string x in materials)
-			{
-				updateCatalog.WriteLine (x);
-			}
-
-			updateCatalog.Close ();
-			outMaterials.Close ();
-		}
-
-
 		public static void CheckIn()
 		{
 				StreamReader checkedOut = FIO.OpenReader ("checkedOut.txt");
@@ -217,10 +116,10 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 				do 
 				{
 					barcode = UI.PromptLine (@"
--------------------------------------------------------------------------------
-         Enter the barcode for the material that you'd like to check in. 
-When you are finished checking in materials, enter 'Q' for the barcode to quit.
--------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+          Enter the barcode for the material that you'd like to check in. 
+ When you are finished checking in materials, enter 'Q' for the barcode to quit.
+---------------------------------------------------------------------------------
 
 - ");									
 					if (barcodes.Contains (barcode))//checks if barcode is in the array of barcodes
@@ -277,8 +176,7 @@ When you are finished checking in materials, enter 'Q' for the barcode to quit.
 				updateCatalog.Close ();
 				outMaterials.Close ();
 			}
-
-
+			
 		/// <summary>
 		/// Creates a new user.
 		/// </summary>
@@ -288,17 +186,24 @@ When you are finished checking in materials, enter 'Q' for the barcode to quit.
 		{
 			string username = "";
 
-			username = UI.PromptLine ("Enter username for new user: ");
+			username = UI.PromptLine (@"
+-------------------------------
+  Enter username for new user 
+-------------------------------
+- ").ToLower();
 
 			//checks if username is already taken by staff or patrons
 			while (staff.ContainsKey (username) || patrons.ContainsKey (username)) 
 			{
-				Console.WriteLine ("USERNAME IS ALREADY TAKEN");
-				username = UI.PromptLine ("Enter username for new user: ");
+				Console.WriteLine ("  !!! USERNAME IS ALREADY TAKEN !!!");
+				username = UI.PromptLine ("Enter username for new user: ").ToLower();
 			}
 				
-			string name = UI.PromptLine ("Enter name for new user: ");
-		
+			string name = UI.PromptLine (@"
+---------------------------
+  Enter name for new user  
+---------------------------
+- ");
 			string password = Account.PasswordMatch ();
 
 			string access = "";
@@ -330,6 +235,34 @@ When you are finished checking in materials, enter 'Q' for the barcode to quit.
 			Account.WriteUsers ("staff", staff);
 		}
 	
+		public static void ShowOutMaterials()
+		{
+			StreamReader checkedOut = FIO.OpenReader (FIO.GetLocation("catalog.txt"),"checkedOut.txt");
+
+			Console.WriteLine (@"
+----------------------------------
+  All checked out materials are:
+----------------------------------");
+
+			while(!checkedOut.EndOfStream)
+			{
+				string [] materials = checkedOut.ReadLine().Split(',');
+
+				foreach (string x in materials)
+				{
+					Console.WriteLine ("     " + x);
+				}
+
+				Console.WriteLine ();
+			}
+
+			checkedOut.Close ();
+
+			Console.WriteLine ("Press any key to continue...");
+
+			Console.ReadLine ();
+		}
+
 		/// <summary>
 		/// Restores the library catalog. (In a sense, checks all books back into the library. Primarily used for testing purposes.)
 		/// </summary>
@@ -350,7 +283,14 @@ When you are finished checking in materials, enter 'Q' for the barcode to quit.
 			catalog.Close ();
 			checkedOut.Close ();
 
-			Console.WriteLine ("Library Restored");
+			Console.WriteLine (@"-------------------
+ Library Restored! 
+-------------------");
+
+			Console.WriteLine ();
+			Console.WriteLine ("Press any key to continue...");
+
+			Console.ReadLine ();
 		}
 	}
 }

@@ -1,3 +1,0 @@
-kid,kidName,12
-mitchmoxxxx,MOX,1234
-paulette,Paulette Matuk,hello
