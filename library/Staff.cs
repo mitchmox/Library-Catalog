@@ -258,7 +258,10 @@ namespace library
 
 			checkedOut.Close ();
 
-			Console.WriteLine ("Press any key to continue...");
+			Console.WriteLine (@"
+------------------------------------
+  Press ENTER to return to menu...
+------------------------------------");
 
 			Console.ReadLine ();
 		}
@@ -288,7 +291,10 @@ namespace library
 -------------------");
 
 			Console.WriteLine ();
-			Console.WriteLine ("Press any key to continue...");
+			Console.WriteLine (@"
+------------------------------------
+  Press ENTER to return to menu...
+------------------------------------");
 
 			Console.ReadLine ();
 		}

@@ -53,7 +53,7 @@ namespace library
 				    case "ask Emmanuel":
 					case "ask":
 					case "assistance":
-						Console.WriteLine("Emanuel isn't here right now. Please try again later.");
+						Emmanuel.Ask();
 						break;
 					case "4":
 					case "q":
@@ -163,7 +163,10 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 			updateCatalog.Close ();
 			outMaterials.Close ();
 
-			Console.WriteLine ("Press any key to continue...");
+			Console.WriteLine (@"
+------------------------------------
+  Press ENTER to return to menu...  
+------------------------------------");
 
 			Console.ReadLine ();
 		}

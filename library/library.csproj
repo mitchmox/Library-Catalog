@@ -41,6 +41,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="Account.cs" />
     <Compile Include="Library.cs" />
+    <Compile Include="Emmanuel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -48,5 +49,7 @@
     <None Include="checkedOut.txt" />
     <None Include="users-patrons.txt" />
     <None Include="users-staff.txt" />
+    <None Include="emmanuel-welcome.txt" />
+    <None Include="emmanuel-responses.txt" />
   </ItemGroup>
 </Project>
