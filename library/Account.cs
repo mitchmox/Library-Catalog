@@ -183,7 +183,6 @@ namespace library
 
 				User newStaff = new User (username,staff[username][0], staff [username] [1],"s");
 
-				newStaff.Add (ref staff, ref patrons);
 				newStaff.Write ("staff", staff);
 			}
 			else if (patrons.ContainsKey(username))
