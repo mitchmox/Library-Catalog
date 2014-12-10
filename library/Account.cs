@@ -181,7 +181,10 @@ namespace library
 
 				staff [username] [1] = ResetPasswordMatch ();
 
-				WriteUsers ("staff", staff);
+				User newStaff = new User (username,staff[username][0], staff [username] [1],"s");
+
+				newStaff.Add (ref staff, ref patrons);
+				newStaff.Write ("staff", staff);
 			}
 			else if (patrons.ContainsKey(username))
 			{
@@ -230,7 +233,9 @@ namespace library
 
 				patrons [username] [1] = ResetPasswordMatch ();
 
-				WriteUsers ("patrons", patrons);
+				User newPatron = new User (username,patrons[username][0],patrons [username] [1] ,"p");
+
+				newPatron.Write ("patrons", patrons);
 			}
 
 

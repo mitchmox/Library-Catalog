@@ -101,9 +101,9 @@ namespace library
 		/// </summary>
 		public static void CheckIn()
 		{
-			if (new FileInfo(FIO.GetPath("checkedOut.txt")).Length > 0)
-			{
 
+			if(new FileInfo(FIO.GetPath("checkedOut.txt")).Length > 0)
+			{
 				StreamReader checkedOut = FIO.OpenReader ("checkedOut.txt");
 				List<string> barcodes = new List<string>();
 				List<string> listOfCheckedOut = new List<string> ();
@@ -189,6 +189,7 @@ When you are finished checking in materials, enter 'Q' for the barcode to quit.
 ---------------------------------------------");
 			}
 		}
+
 			
 		/// <summary>
 		/// Creates a new user.
@@ -304,11 +305,11 @@ When you are finished checking in materials, enter 'Q' for the barcode to quit.
 
 			Console.WriteLine ();
 
+
 			Console.WriteLine (@"
 ------------------------------------
   Press ENTER to return to menu...
 ------------------------------------");
-
 
 			Console.ReadLine ();
 		}

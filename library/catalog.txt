@@ -15,6 +15,7 @@
 450001,The Fame,Lady Gaga,2008
 450002,The Fame Monster,Lady Gaga,2009
 450003,Born This Way,Lady Gaga,2011
+450004,ARTPOP,Lady Gaga,2013
 450005,Thriller,Michael Jackson,1982
 450006,The Dark Side Of The Moon,Pink Floyd,1973
 450007,The Bodyguard,Whitney Huston,1992
@@ -33,7 +34,3 @@
 660009,The Lord of the Rings: The Return of the King,Peter Jackson,2003
 660010,Skyfall,Sam Mendes,2012
 660011,Transformers: Age of Extinction,Michael Bay,2014
-<<<<<<< HEAD
-=======
-450004,ARTPOP,Lady Gaga,2013
->>>>>>> FETCH_HEAD
