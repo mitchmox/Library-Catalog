@@ -1,7 +1,0 @@
-<<<<<<< HEAD
-
-=======
-660001,Harold and Maude,Hal Ashby,1971,eva
-450000,Sgt. Pepper's Lonely Hearts Club Band,The Beatles,1967,zach
-230015,Symposium,Plato - Trans. Alexander Nehama and Paul Woodruff,1989,cs
->>>>>>> FETCH_HEAD

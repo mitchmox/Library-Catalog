@@ -8,3 +8,8 @@ C:\Users\Daniel\Documents\GitHub\Library-Catalog\library\bin\Debug\library.pdb
 C:\Users\Daniel\Documents\GitHub\Library-Catalog\library\obj\x86\Debug\library.csprojResolveAssemblyReference.cache
 C:\Users\Daniel\Documents\GitHub\Library-Catalog\library\obj\x86\Debug\library.exe
 C:\Users\Daniel\Documents\GitHub\Library-Catalog\library\obj\x86\Debug\library.pdb
+C:\Users\mmox\Documents\GitHub\Library-Catalog\library\obj\x86\Debug\library.csprojResolveAssemblyReference.cache
+C:\Users\mmox\Documents\GitHub\Library-Catalog\library\obj\x86\Debug\library.exe
+C:\Users\mmox\Documents\GitHub\Library-Catalog\library\bin\Debug\library.exe
+C:\Users\mmox\Documents\GitHub\Library-Catalog\library\bin\Debug\library.pdb
+C:\Users\mmox\Documents\GitHub\Library-Catalog\library\obj\x86\Debug\library.pdb

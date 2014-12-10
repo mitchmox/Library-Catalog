@@ -101,6 +101,9 @@ namespace library
 		/// </summary>
 		public static void CheckIn()
 		{
+			if (new FileInfo(FIO.GetPath("checkedOut.txt")).Length > 0)
+			{
+
 				StreamReader checkedOut = FIO.OpenReader ("checkedOut.txt");
 				List<string> barcodes = new List<string>();
 				List<string> listOfCheckedOut = new List<string> ();
@@ -119,10 +122,10 @@ namespace library
 				do 
 				{
 					barcode = UI.PromptLine (@"
----------------------------------------------------------------------------------
-          Enter the barcode for the material that you'd like to check in. 
- When you are finished checking in materials, enter 'Q' for the barcode to quit.
----------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+         Enter the barcode for the material that you'd like to check in. 
+When you are finished checking in materials, enter 'Q' for the barcode to quit.
+-------------------------------------------------------------------------------
 
 - ");									
 					if (barcodes.Contains (barcode))//checks if barcode is in the array of barcodes
@@ -151,9 +154,9 @@ namespace library
 						{
 							Console.WriteLine ();
 							Console.WriteLine (@"
-----------------------------------------------------------------------
-!!! Invalid barcode. Material is either checked in or nonexistent. !!!
-----------------------------------------------------------------------");
+------------------------------------------------------------------------
+ !!! Invalid barcode. Material is either checked in or nonexistent. !!!
+------------------------------------------------------------------------");
 							Console.WriteLine ();
 						}
 					}
@@ -179,6 +182,13 @@ namespace library
 				updateCatalog.Close ();
 				outMaterials.Close ();
 			}
+			else
+			{
+					Console.WriteLine(@"---------------------------------------------
+ !!! There are no materials to check in. !!!
+---------------------------------------------");
+			}
+		}
 			
 		/// <summary>
 		/// Creates a new user.
@@ -190,9 +200,9 @@ namespace library
 			string username = "";
 
 			username = UI.PromptLine (@"
--------------------------------
-  Enter username for new user 
--------------------------------
+--------------------------------
+  Enter username for new user: 
+--------------------------------
 - ").ToLower();
 
 			//checks if username is already taken by staff or patrons
@@ -203,9 +213,9 @@ namespace library
 			}
 				
 			string name = UI.PromptLine (@"
----------------------------
-  Enter name for new user  
----------------------------
+----------------------------
+  Enter name for new user:  
+----------------------------
 - ");
 			string password = Account.PasswordMatch ();
 
@@ -261,14 +271,10 @@ namespace library
 
 			checkedOut.Close ();
 
-<<<<<<< HEAD
-			Console.WriteLine ("Press ENTER to return to the menu...");
-=======
 			Console.WriteLine (@"
 ------------------------------------
   Press ENTER to return to menu...
 ------------------------------------");
->>>>>>> FETCH_HEAD
 
 			Console.ReadLine ();
 		}
@@ -298,15 +304,12 @@ namespace library
 -------------------");
 
 			Console.WriteLine ();
-<<<<<<< HEAD
 
-			Console.WriteLine ("Press ENTER to return to the menu...");
-=======
 			Console.WriteLine (@"
 ------------------------------------
   Press ENTER to return to menu...
 ------------------------------------");
->>>>>>> FETCH_HEAD
+
 
 			Console.ReadLine ();
 		}

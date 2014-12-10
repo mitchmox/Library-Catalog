@@ -1,6 +1,1 @@
-<<<<<<< HEAD
 patron,Patron,1234
-=======
-zach,Zach,z
-cs,Christine,pumpkin
->>>>>>> FETCH_HEAD
