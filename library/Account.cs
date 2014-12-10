@@ -234,7 +234,7 @@ namespace library
 			}
 
 
-			Console.WriteLine("\nPassword for " + username + " has been changed");
+			Console.WriteLine("\nPassword for " + username + " has been changed!");
 		}
 
 		/// <summary>

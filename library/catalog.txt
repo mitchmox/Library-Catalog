@@ -8,16 +8,13 @@
 230012,Four Tragedies,Sophocles - Trans. Meineck and Woodruff,2007
 230013,History of the Peloponnesian War,Thucydides,1954
 230014,Four Texts on Socrates,Aristophones and Plato - Eds. West and West,1998
-230015,Symposium,Plato - Trans. Alexander Nehama and Paul Woodruff,1989
 230016,Aeneid,Virgil - Trans. Mandelbaum, 1971
 230017,Confessions,Saint Augustine - Trans. Henry Chadwick,1971
 230018,Abbot Suger on the Abbey Church of St. -Denis and Its Art Treasures - Ed. Erwin Panofsky,1979
 230019,Inferon,Dante - Trans. Allen Mandelbaum,1980
-450000,Sgt. Pepper's Lonely Hearts Club Band,The Beatles,1967
 450001,The Fame,Lady Gaga,2008
 450002,The Fame Monster,Lady Gaga,2009
 450003,Born This Way,Lady Gaga,2011
-450004,ARTPOP,Lady Gaga,2013
 450005,Thriller,Michael Jackson,1982
 450006,The Dark Side Of The Moon,Pink Floyd,1973
 450007,The Bodyguard,Whitney Huston,1992
@@ -26,7 +23,6 @@
 450010,Saturday Night Fever,Bee Gees,1977
 450011,Rumours,Fleetwood Mac,1977
 660000,Back to the Future,Robert Zemeckis,1985
-660001,Harold and Maude,Hal Ashby,1971
 660002,Avatar,James Cameron,2009
 660003,Titanic,James Cameron,1997
 660004,The Avengers,Joss Whedon,2012
@@ -37,3 +33,7 @@
 660009,The Lord of the Rings: The Return of the King,Peter Jackson,2003
 660010,Skyfall,Sam Mendes,2012
 660011,Transformers: Age of Extinction,Michael Bay,2014
+<<<<<<< HEAD
+=======
+450004,ARTPOP,Lady Gaga,2013
+>>>>>>> FETCH_HEAD

@@ -261,7 +261,14 @@ namespace library
 
 			checkedOut.Close ();
 
+<<<<<<< HEAD
 			Console.WriteLine ("Press ENTER to return to the menu...");
+=======
+			Console.WriteLine (@"
+------------------------------------
+  Press ENTER to return to menu...
+------------------------------------");
+>>>>>>> FETCH_HEAD
 
 			Console.ReadLine ();
 		}
@@ -291,8 +298,15 @@ namespace library
 -------------------");
 
 			Console.WriteLine ();
+<<<<<<< HEAD
 
 			Console.WriteLine ("Press ENTER to return to the menu...");
+=======
+			Console.WriteLine (@"
+------------------------------------
+  Press ENTER to return to menu...
+------------------------------------");
+>>>>>>> FETCH_HEAD
 
 			Console.ReadLine ();
 		}
