@@ -163,7 +163,7 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 			updateCatalog.Close ();
 			outMaterials.Close ();
 
-			Console.WriteLine ("Press any key to continue...");
+			Console.WriteLine ("Press ENTER to return to the menu...");
 
 			Console.ReadLine ();
 		}

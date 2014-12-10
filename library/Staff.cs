@@ -52,7 +52,9 @@ namespace library
 					case "check":
 					case "check out":
 					case "out":
-						Patron.CheckOut(Account.GetUsername("Whom would you like to check books out for?", "Username not found. Please try again.", ref staff, ref patrons));
+						Patron.CheckOut(Account.GetUsername(@"-----------------------------------------------
+  Whom would you like to check books out for?
+-----------------------------------------------", "Username not found. Please try again.", ref staff, ref patrons));
 						break;
 					case "2":
 					case "return":
@@ -62,7 +64,9 @@ namespace library
 					case "3":
 					case "reset password":
 					case "reset":
-						Account.ResetPassword(Account.GetUsername("For which user would you like to reset the password?", "Username not found. Please try again.", ref staff, ref patrons), ref staff, ref patrons);
+						Account.ResetPassword(Account.GetUsername(@"--------------------------------------------------------
+  For which user would you like to reset the password?
+--------------------------------------------------------", "Username not found. Please try again.", ref staff, ref patrons), ref staff, ref patrons);
 						break;
 					case "4":
 					case "add user":
@@ -84,8 +88,7 @@ namespace library
 					case "quit":
 						break;
 					default:
-						Console.WriteLine (@"
--------------------------------------------------
+						Console.WriteLine (@"-------------------------------------------------
  !!! Request not recognized. Please see menu !!! 
 -------------------------------------------------");
 						break;
@@ -129,7 +132,7 @@ namespace library
 
 						
 						//removes the materials from available barcodes and materials list
-					listOfCheckedIn.Add(listOfCheckedOut[barcodes.IndexOf(barcode)].Remove(listOfCheckedOut[barcodes.IndexOf(barcode)].LastIndexOf(",")));
+						listOfCheckedIn.Add(listOfCheckedOut[barcodes.IndexOf(barcode)].Remove(listOfCheckedOut[barcodes.IndexOf(barcode)].LastIndexOf(",")));
 						
 						listOfCheckedOut.Remove(listOfCheckedOut[barcodes.IndexOf(barcode)]);
 						barcodes.Remove(barcode);
@@ -258,7 +261,7 @@ namespace library
 
 			checkedOut.Close ();
 
-			Console.WriteLine ("Press any key to continue...");
+			Console.WriteLine ("Press ENTER to return to the menu...");
 
 			Console.ReadLine ();
 		}
@@ -288,7 +291,8 @@ namespace library
 -------------------");
 
 			Console.WriteLine ();
-			Console.WriteLine ("Press any key to continue...");
+
+			Console.WriteLine ("Press ENTER to return to the menu...");
 
 			Console.ReadLine ();
 		}
