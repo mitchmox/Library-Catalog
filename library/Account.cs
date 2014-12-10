@@ -370,29 +370,6 @@ namespace library
 
 			}while(pass!= userPassword);
 		}
-
-
-
-		//NO LONGER NECCESSARY BELOW
-
-
-
-		/// <summary>
-		/// Writes the users to their respective files.
-		/// </summary>
-		/// <param name="userGroup">User group.</param>
-		/// <param name="userDict">User dict.</param>
-		public static void WriteUsers (string userGroup, Dictionary<string,string[]> userDict)
-		{
-			StreamWriter writeUsers = FIO.OpenWriter (FIO.GetLocation("catalog.txt"),"users-" + userGroup + ".txt");
-
-			foreach (string key in userDict.Keys)
-			{	
-				writeUsers.WriteLine ("{0},{1},{2}", key,  userDict[key] [0], userDict [key] [1]);
-			}
-
-			writeUsers.Close ();
-		}
 	}
 }
 

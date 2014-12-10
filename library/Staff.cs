@@ -235,7 +235,7 @@ When you are finished checking in materials, enter 'Q' for the barcode to quit.
 
 			newUser.Add (ref staff, ref patrons);
 
-			//sends dictionaries of users to WriteUsers
+			//sends dictionaries of users to Write
 			newUser.Write ("patrons", patrons);
 			newUser.Write ("staff", staff);
 		}
