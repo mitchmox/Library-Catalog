@@ -231,52 +231,51 @@ When you are finished checking in materials, enter 'Q' for the barcode to quit.
 
 			Console.WriteLine ();
 
-			//adds user info to the proper list based on the access key given
-			if (access == "p") 
-			{
-				patrons.Add (username, new string [] { name, password });
-				Console.WriteLine ("USER CREATED!");
-			}
-			if (access == "s") 
-			{
-				staff.Add (username, new string [] { name, password });
-				Console.WriteLine ("USER CREATED!");
-			}
+			User newUser = new User (username, name, password, access);
+
+			newUser.Add (ref staff, ref patrons);
 
 			//sends dictionaries of users to WriteUsers
-			Account.WriteUsers ("patrons", patrons);
-			Account.WriteUsers ("staff", staff);
+			newUser.Write ("patrons", patrons);
+			newUser.Write ("staff", staff);
 		}
 	
 		public static void ShowOutMaterials()
 		{
-			StreamReader checkedOut = FIO.OpenReader (FIO.GetLocation("catalog.txt"),"checkedOut.txt");
+			if (new FileInfo (FIO.GetPath ("checkedOut.txt")).Length > 0) {
+				StreamReader checkedOut = FIO.OpenReader (FIO.GetLocation ("catalog.txt"), "checkedOut.txt");
 
-			Console.WriteLine (@"
+				Console.WriteLine (@"
 ----------------------------------
   All checked out materials are:
 ----------------------------------");
 
-			while(!checkedOut.EndOfStream)
-			{
-				string [] materials = checkedOut.ReadLine().Split(',');
+				while (!checkedOut.EndOfStream) {
+					string[] materials = checkedOut.ReadLine ().Split (',');
 
-				foreach (string x in materials)
-				{
-					Console.WriteLine ("     " + x);
+					foreach (string x in materials) {
+						Console.WriteLine ("     " + x);
+					}
+
+					Console.WriteLine ();
 				}
 
-				Console.WriteLine ();
-			}
+				checkedOut.Close ();
 
-			checkedOut.Close ();
-
-			Console.WriteLine (@"
+				Console.WriteLine (@"
 ------------------------------------
   Press ENTER to return to menu...
 ------------------------------------");
 
-			Console.ReadLine ();
+				Console.ReadLine ();
+			} 
+			else 
+			{
+				Console.WriteLine(@"---------------------------------------------
+ !!! There are no materials checked out. !!!
+---------------------------------------------");
+			}
+
 		}
 
 		/// <summary>

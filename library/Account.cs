@@ -371,6 +371,12 @@ namespace library
 			}while(pass!= userPassword);
 		}
 
+
+
+		//NO LONGER NECCESSARY BELOW
+
+
+
 		/// <summary>
 		/// Writes the users to their respective files.
 		/// </summary>

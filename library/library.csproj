@@ -42,6 +42,7 @@
     <Compile Include="Account.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="Emmanuel.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
