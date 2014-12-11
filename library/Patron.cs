@@ -125,7 +125,7 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 							barcodes.Remove(barcode);
 							break;
 						case"45":
-							Console.WriteLine("- MOVIE DUE IN 14 DAYS ON: {0:D}", DateTime.Today.AddDays(14));
+							Console.WriteLine("- ALBUM DUE IN 14 DAYS ON: {0:D}", DateTime.Today.AddDays(14));
 							listOfCheckedOut.Add(materials[barcodes.IndexOf(barcode)] + "," + username + " Due: " + DateTime.Today.AddDays(30));
 							barcodes.Remove(barcode);
 							break;
