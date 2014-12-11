@@ -287,18 +287,19 @@ When you are finished checking in materials, enter 'Q' for the barcode to quit.
 		{
 			StreamReader master = FIO.OpenReader ("master.txt");
 			StreamWriter catalog = FIO.OpenWriter (FIO.GetLocation("catalog.txt"),"catalog.txt");
-			StreamWriter checkedOut = FIO.OpenWriter (FIO.GetLocation("catalog.txt"),"checkedOut.txt");
+			//StreamWriter checkedOut = FIO.OpenWriter (FIO.GetLocation("catalog.txt"),"checkedOut.txt");
 
 			while(!master.EndOfStream)
 			{
 				catalog.WriteLine (master.ReadLine());
 			}
 
-			checkedOut.WriteLine("");
+			File.Create(FIO.GetPath("checkedOut.txt")).Close();
 
 			master.Close ();
 			catalog.Close ();
-			checkedOut.Close ();
+
+			//checkedOut.Close ();
 
 			Console.WriteLine (@"-------------------
  Library Restored! 
