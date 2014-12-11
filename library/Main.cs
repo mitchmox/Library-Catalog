@@ -49,7 +49,7 @@ namespace library
 		/// </summary>
 		/// <param name="userGroup">User group.</param>
 		/// <param name="userDict">User dict.</param>
-		public static void GetUsers(string userGroup, Dictionary<string,string[]> userDict)
+		public static void GetUsers(string userGroup, Dictionary<string,string[]> userDict)												
 		{
 			if (FIO.GetLocation ("users-" + userGroup + ".txt") != "")
 			{

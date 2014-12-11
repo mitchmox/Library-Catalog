@@ -52,5 +52,6 @@
     <None Include="users-staff.txt" />
     <None Include="emmanuel-welcome.txt" />
     <None Include="emmanuel-responses.txt" />
+    <None Include="master.txt" />
   </ItemGroup>
 </Project>

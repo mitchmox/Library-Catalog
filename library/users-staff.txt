@@ -1,1 +1,1 @@
-admin,adminNmae,1234
+admin,adminName,1234

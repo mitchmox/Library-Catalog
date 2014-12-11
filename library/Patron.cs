@@ -104,18 +104,38 @@ When you are finished checking out materials, enter 'Q' for the barcode to quit.
 				{
 					Console.WriteLine();
 					string[] material = materials[barcodes.IndexOf(barcode)].Split(',');
-					listOfCheckedOut.Add(materials[barcodes.IndexOf(barcode)] + "," + username);
+					//listOfCheckedOut.Add(materials[barcodes.IndexOf(barcode)] + "," + username);
 
 					//removes the materials from available barcodes and materials list
 					materials.Remove(materials[barcodes.IndexOf(barcode)]);
-					barcodes.Remove(barcode);
+
 
 					foreach (string x in material)
 					{
 						Console.WriteLine ("     " + x);
 					}
 
-					Console.WriteLine ("\n- ITEM CHECKED OUT TO "  + username.ToUpper () +"  -  ");
+					Console.WriteLine ("\n- ITEM CHECKED OUT TO "  + username.ToUpper ());
+
+					switch(barcode.Substring(0,2))
+					{	
+						case"23":
+							Console.WriteLine("- BOOK DUE IN 30 DAYS ON: {0:D}", DateTime.Today.AddDays(30));
+							listOfCheckedOut.Add(materials[barcodes.IndexOf(barcode)] + "," + username + " Due: " + DateTime.Today.AddDays(30));
+							barcodes.Remove(barcode);
+							break;
+						case"45":
+							Console.WriteLine("- MOVIE DUE IN 14 DAYS ON: {0:D}", DateTime.Today.AddDays(14));
+							listOfCheckedOut.Add(materials[barcodes.IndexOf(barcode)] + "," + username + " Due: " + DateTime.Today.AddDays(30));
+							barcodes.Remove(barcode);
+							break;
+						case"67":
+							Console.WriteLine("- MOVIE DUE IN 7 DAYS ON: {0:D}", DateTime.Today.AddDays(7));
+							listOfCheckedOut.Add(materials[barcodes.IndexOf(barcode)] + "," + username + " Due: " + DateTime.Today.AddDays(30));
+							barcodes.Remove(barcode);
+							break;
+					}
+
 				}
 				else
 				{
