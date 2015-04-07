@@ -1,2 +1,6 @@
 patron,Patron,1234
+<<<<<<< HEAD
 brennag13,Brenna,magoo
+=======
+hello,HELLO,hi
+>>>>>>> origin/mitchell

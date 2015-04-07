@@ -35,10 +35,12 @@ namespace library
 				}
 				else
 				{
+					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine (@"
 ---------------------------------------------
  !!! Username not found. Please try again !!! 
 ---------------------------------------------");
+					Console.ForegroundColor = ConsoleColor.Black;
 				}
 	
 			} while(!(patrons.ContainsKey (username) || staff.ContainsKey (username)));
