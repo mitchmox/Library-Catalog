@@ -24,8 +24,6 @@
 450008,Their Greatest Hits,The Eagles, 1976
 450009,Back In Black,AC/DC,1980
 450010,Saturday Night Fever,Bee Gees,1977
-450011,Rumours,Fleetwood Mac,1977
-670000,Back to the Future,Robert Zemeckis,1985
 670001,Harold and Maude,Hal Ashby,1971
 670002,Avatar,James Cameron,2009
 670003,Titanic,James Cameron,1997

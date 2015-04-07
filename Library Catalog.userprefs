@@ -1,11 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="library/User.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="library\emmanuel-responses.txt">
     <Files>
-      <File FileName="library/catalog.txt" Line="1" Column="1" />
-      <File FileName="library/Patron.cs" Line="34" Column="34" />
-      <File FileName="library/Library.cs" Line="1" Column="1" />
-      <File FileName="library/User.cs" Line="1" Column="1" />
+      <File FileName="library\catalog.txt" Line="1" Column="1" />
+      <File FileName="library\Patron.cs" Line="1" Column="1" />
+      <File FileName="library\Library.cs" Line="1" Column="1" />
+      <File FileName="library\User.cs" Line="1" Column="1" />
+      <File FileName="library\checkedOut.txt" Line="1" Column="1" />
+      <File FileName="library\emmanuel-welcome.txt" Line="1" Column="1" />
+      <File FileName="library\emmanuel-responses.txt" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
