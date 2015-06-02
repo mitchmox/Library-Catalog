@@ -13,7 +13,6 @@
 230017,Confessions,Saint Augustine - Trans. Henry Chadwick,1971
 230018,Abbot Suger on the Abbey Church of St. -Denis and Its Art Treasures - Ed. Erwin Panofsky,1979
 230019,Inferon,Dante - Trans. Allen Mandelbaum,1980
-230020,Persepolis: The Story of A Childhood,Marjane Satrapi,2000
 450000,Sgt. Pepper's Lonely Hearts Club Band,The Beatles,1967
 450001,The Fame,Lady Gaga,2008
 450002,The Fame Monster,Lady Gaga,2009

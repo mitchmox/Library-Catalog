@@ -60,12 +60,10 @@ namespace library
 					case "quit":
 						break;
 					default:
-						Console.ForegroundColor = ConsoleColor.Red;
 						Console.WriteLine (@"
 -------------------------------------------------
  !!! Request not recognized. Please see menu !!! 
 -------------------------------------------------");
-						Console.ForegroundColor = ConsoleColor.Black;
 						break;
 				}
 			} while(!(command.ToLower().Contains("4") || command.ToLower().Contains("q") || (command.ToLower().Contains("quit"))));	

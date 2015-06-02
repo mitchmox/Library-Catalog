@@ -117,9 +117,7 @@ namespace library
 
 				if (password1 != password2) //if passwords do not match error message is shown
 				{ 
-					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine ("PASSWORDS DO NOT MATCH! PLEASE RE-ENTER!");
-					Console.ForegroundColor = ConsoleColor.Black;
 				}
 
 			} while (password1 != password2);
@@ -172,12 +170,10 @@ namespace library
 
 					if(pass!= staff [username] [1])
 					{
-						Console.ForegroundColor = ConsoleColor.Red;
 						Console.WriteLine(@"
 ----------------------------
   !!!Incorrect Password!!!
 ----------------------------");
-						Console.ForegroundColor = ConsoleColor.Black;
 
 					}
 
@@ -226,12 +222,10 @@ namespace library
 
 					if(pass!= patrons [username] [1])
 					{
-						Console.ForegroundColor = ConsoleColor.Red;
 						Console.WriteLine(@"
 ----------------------------
   !!!Incorrect Password!!!
 ----------------------------");
-						Console.ForegroundColor = ConsoleColor.Black;
 
 					}
 				}while(pass!= patrons [username] [1]);
@@ -322,9 +316,7 @@ namespace library
 
 				if (password1 != password2) //if passwords do not match error message is shown
 				{ 
-					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine ("PASSWORDS DO NOT MATCH! PLEASE RE-ENTER!");
-					Console.ForegroundColor = ConsoleColor.Black;
 				}
 
 			} while (password1 != password2);
@@ -373,12 +365,10 @@ namespace library
 
 				if(pass!= userPassword)
 				{
-					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine(@"
 ------------------------
 !!!Incorrect Password!!!
 ------------------------");
-					Console.ForegroundColor = ConsoleColor.Black;
 
 				}
 
