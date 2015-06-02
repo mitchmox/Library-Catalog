@@ -1,30 +1,11 @@
-﻿<Properties StartupItem="library/library.csproj">
+﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="library\emmanuel-responses.txt">
+  <MonoDevelop.Ide.Workbench ActiveDocument="library/User.cs">
     <Files>
-      <File FileName="library\catalog.txt" Line="1" Column="1" />
-      <File FileName="library\Patron.cs" Line="1" Column="1" />
-      <File FileName="library\Library.cs" Line="1" Column="1" />
-      <File FileName="library\User.cs" Line="1" Column="1" />
-      <File FileName="library\checkedOut.txt" Line="1" Column="1" />
-      <File FileName="library\emmanuel-welcome.txt" Line="1" Column="1" />
-      <File FileName="library\emmanuel-responses.txt" Line="1" Column="1" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="library/Patron.cs">
-    <Files>
-<<<<<<< Updated upstream
-      <File FileName="library/Main.cs" Line="49" Column="49" />
-      <File FileName="library/Account.cs" Line="2" Column="2" />
-      <File FileName="library/Staff.cs" Line="35" Column="35" />
-      <File FileName="library/Patron.cs" Line="51" Column="51" />
->>>>>>> origin/mitchell
-=======
-      <File FileName="library/Main.cs" Line="1" Column="1" />
-      <File FileName="library/Account.cs" Line="1" Column="1" />
-      <File FileName="library/Staff.cs" Line="1" Column="1" />
-      <File FileName="library/Patron.cs" Line="1" Column="1" />
->>>>>>> Stashed changes
+      <File FileName="library/catalog.txt" Line="1" Column="1" />
+      <File FileName="library/Patron.cs" Line="34" Column="34" />
+      <File FileName="library/Library.cs" Line="1" Column="1" />
+      <File FileName="library/User.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

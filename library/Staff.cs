@@ -89,11 +89,9 @@ namespace library
 					case "quit":
 						break;
 					default:
-						Console.ForegroundColor = ConsoleColor.Red;
 						Console.WriteLine (@"-------------------------------------------------
  !!! Request not recognized. Please see menu !!! 
 -------------------------------------------------");
-						Console.ForegroundColor = ConsoleColor.Black;
 						break;
 				}
 			} while(!(command.ToLower().Contains("7") || command.ToLower().Contains("q") || (command.ToLower().Contains("quit"))));
@@ -156,12 +154,10 @@ When you are finished checking in materials, enter 'Q' for the barcode to quit.
 						if (barcode.ToLower() != "q")
 						{
 							Console.WriteLine ();
-							Console.ForegroundColor = ConsoleColor.Red;
 							Console.WriteLine (@"
 ------------------------------------------------------------------------
  !!! Invalid barcode. Material is either checked in or nonexistent. !!!
 ------------------------------------------------------------------------");
-							Console.ForegroundColor = ConsoleColor.Black;
 							Console.WriteLine ();
 						}
 					}
@@ -189,11 +185,9 @@ When you are finished checking in materials, enter 'Q' for the barcode to quit.
 			}
 			else
 			{
-				Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine(@"---------------------------------------------
  !!! There are no materials to check in. !!!
 ---------------------------------------------");
-				Console.ForegroundColor = ConsoleColor.Black;
 			}
 		}
 
@@ -279,11 +273,9 @@ When you are finished checking in materials, enter 'Q' for the barcode to quit.
 			} 
 			else 
 			{
-				Console.ForegroundColor = ConsoleColor.Red;
 				Console.WriteLine(@"---------------------------------------------
  !!! There are no materials checked out. !!!
 ---------------------------------------------");
-				Console.ForegroundColor = ConsoleColor.Black;
 			}
 
 		}
@@ -308,13 +300,10 @@ When you are finished checking in materials, enter 'Q' for the barcode to quit.
 			catalog.Close ();
 
 			//checkedOut.Close ();
-			Console.ForegroundColor = ConsoleColor.Blue;
 
 			Console.WriteLine (@"-------------------
  Library Restored! 
 -------------------");
-
-			Console.ForegroundColor = ConsoleColor.Black;
 
 			Console.WriteLine ();
 
