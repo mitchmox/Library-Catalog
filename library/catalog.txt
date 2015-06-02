@@ -5,7 +5,6 @@
 230005,Harry Potter and the Half-Blood Prince,J.K Rowling,2005
 230006,Harry Potter and the Deathly Hallows,J.K Rowling,2007
 230011,Odyssey,Homer - Trans. Robert Fagles,1990
-230012,Four Tragedies,Sophocles - Trans. Meineck and Woodruff,2007
 230013,History of the Peloponnesian War,Thucydides,1954
 230014,Four Texts on Socrates,Aristophones and Plato - Eds. West and West,1998
 230015,Symposium,Plato - Trans. Alexander Nehama and Paul Woodruff,1989

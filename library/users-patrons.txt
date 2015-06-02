@@ -3,4 +3,8 @@ patron,Patron,1234
 brennag13,Brenna,magoo
 =======
 hello,HELLO,hi
+<<<<<<< Updated upstream
 >>>>>>> origin/mitchell
+=======
+loupapa,Lou Papa,cool
+>>>>>>> Stashed changes
